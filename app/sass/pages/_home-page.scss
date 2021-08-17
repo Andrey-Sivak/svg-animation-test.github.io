@@ -1,3 +1,22 @@
+.bg {
+  $radius: 738px;
+
+  &-circle {
+    border: 2px dashed rgba(#fff, .2);
+    width: $radius * 2;
+    height: $radius * 2;
+    top: -475px;
+    right: -142px;
+    @include flex-center();
+  }
+
+  &-sub_circle {
+    border: inherit;
+    width: calc(100% - 150px);
+    height: calc(100% - 150px);
+  }
+}
+
 .home-page {
 
 }

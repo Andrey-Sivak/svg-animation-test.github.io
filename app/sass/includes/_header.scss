@@ -1,3 +1,30 @@
 .header {
+  margin-top: 63px;
+  max-width: 1413px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
+  &__langs {
+    display: flex;
+    font-size: 14px;
+  }
+
+  &__lang {
+    font-weight: 700;
+    opacity: .41;
+    @include transition-ease;
+
+    &:first-of-type {
+      margin-right: 15px;
+    }
+
+    &:hover {
+      opacity: .7;
+    }
+
+    &.active {
+      opacity: 1;
+    }
+  }
 }

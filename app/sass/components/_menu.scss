@@ -1,0 +1,36 @@
+.menu {
+  max-width: 373px;
+  font-size: 14px;
+
+  &__wrap {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__item {
+
+    &_link {
+      padding: 5px 0;
+      opacity: 1;
+      font-weight: 300;
+
+      &.hover {
+        opacity: 0;
+        @include transition-ease;
+        font-weight: 400;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        white-space: nowrap;
+      }
+
+      &.hover:hover {
+        opacity: 1;
+      }
+    }
+
+    &.active &_link {
+      font-weight: 700;
+    }
+  }
+}
