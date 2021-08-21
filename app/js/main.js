@@ -234,29 +234,44 @@ window.addEventListener('load', function () {
         let isAnimationEnd = true;
         const animationDuration = 5000;
 
-        const animatedElems = {
-            display: document.getElementById('dis'),
-            phone: document.getElementById('ph'),
+        const options = {
+            display: {
+                elem: document.getElementById('display'),
+                isAnimationEnd: true,
+            },
+            phone: {
+                elem: document.getElementById('phone'),
+                isAnimationEnd: true,
+            },
+            laptop: {
+                elem: document.getElementById('laptop'),
+                isAnimationEnd: true,
+            },
         };
 
-        animatedElems.display.addEventListener('click', displayAnimation);
-        animatedElems.phone.addEventListener('click', displayAnimation);
+        for (const key in options) {
+            console.log(options[key]);
 
-        function displayAnimation(e) {
+            options[key].elem.addEventListener('mouseover', function (e) {
+                displayAnimation(this, options[key].isAnimationEnd);
+            })
+        }
+
+        function displayAnimation(targetElement, isAnimationEnd) {
             if (!isAnimationEnd) {
                 return;
             }
             isAnimationEnd = false;
 
-            if (!this.classList.contains('click')) {
-                this.classList.add('click');
+            if (!targetElement.parentElement.classList.contains('click')) {
+                targetElement.parentElement.classList.add('click');
             }
 
             setTimeout(() => {
                 isAnimationEnd = true;
 
                 // TODO: remove this code
-                this.classList.remove('click');
+                targetElement.parentElement.classList.remove('click');
             }, animationDuration);
         }
     })()

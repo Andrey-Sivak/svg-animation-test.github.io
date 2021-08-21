@@ -33,6 +33,7 @@
   }
 
   #ph {
+    transform: translateY(93px) translateX(40px);
 
     $duration: 4s;
 
@@ -85,6 +86,45 @@
 
       #Ellipse3 {
         animation-name: phonedialogelipseopacity3;
+      }
+    }
+  }
+
+  #lap {
+    transform: translateX(116px) translateY(358px);
+
+    $duration: 1s;
+
+    #laptop-left-bottom {
+      opacity: .2;
+    }
+
+    #laptop-left-top {
+      opacity: .3;
+    }
+
+    #laptop-right,
+    #laptop-left-bottom,
+    #laptop-left-top {
+      animation-duration: $duration;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+      animation-direction: alternate;
+      animation-timing-function: linear;
+    }
+
+    &.click {
+
+      #laptop-right {
+        animation-name: laptoprightmove;
+      }
+
+      #laptop-left-bottom {
+        animation-name: laptopleftbottomove;
+      }
+
+      #laptop-left-top {
+        animation-name: laptoplefttopmove;
       }
     }
   }
@@ -228,7 +268,40 @@
   }
 }
 
-// current support properties
+@keyframes laptoprightmove {
+  50% {
+    transform: translateX(-50px) translateY(-12px);
+  }
+
+  100% {
+    transform: translateX(-48px) translateY(18px);
+  }
+}
+
+@keyframes laptopleftbottomove {
+  50% {
+    transform: translateX(39px) translateY(-42px);
+    opacity: .2;
+  }
+
+  100% {
+    transform: translateX(-11px) translateY(-24px);
+    opacity: .3;
+  }
+}
+
+@keyframes laptoplefttopmove {
+  50% {
+    transform: translateX(-49px) translateY(12px);
+    opacity: .3;
+  }
+
+  100% {
+    transform: translateX(11px) translateY(24px);
+    opacity: .2;
+  }
+}
+
 //
 // animation-name
 // animation-duration
