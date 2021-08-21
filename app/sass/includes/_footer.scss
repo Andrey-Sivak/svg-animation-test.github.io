@@ -1,3 +1,50 @@
 .footer {
+  display: flex;
+  max-width: 1400px;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 65px;
 
+  &__left {
+    display: flex;
+    align-items: center;
+  }
+
+  &__right {
+    max-width: 510px;
+  }
+
+  &__menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &_item {
+      padding: 0 5px;
+
+      &.active {
+
+        .footer__menu_link {
+          font-weight: 500;
+        }
+      }
+    }
+
+    &_link {
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 13px;
+      z-index: 1;
+
+      &.hover {
+        opacity: 0;
+        @include transition-ease;
+        z-index: 0;
+      }
+
+      &:hover + &.hover {
+        opacity: 1;
+      }
+    }
+  }
 }

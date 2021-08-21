@@ -34,6 +34,36 @@
   width: 100%;
 }
 
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.section-caption {
+  font-size: 48px;
+  line-height: 118px;
+  font-weight: bold;
+}
+
+.absolute-center {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.absolute-center-x {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.absolute-center-y {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 body {
 
 }

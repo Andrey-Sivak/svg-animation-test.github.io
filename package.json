@@ -9,6 +9,10 @@
     "start": "gulp",
     "build": "gulp build"
   },
+  "dependencies": {
+    "jquery": "^3.6.0",
+    "npm-check-updates": "^11.3.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.14.6",
     "@babel/preset-env": "^7.14.5",

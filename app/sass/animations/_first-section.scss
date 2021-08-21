@@ -1,0 +1,239 @@
+#first-section-svg {
+
+  #dis {
+    transform: translateX(calc(100% - 460px));
+
+    $duration: 2s;
+
+    #display-top-right,
+    #display-top-left,
+    #display-bottom-right {
+      animation-duration: $duration;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+      animation-direction: alternate;
+      animation-timing-function: ease-in-out;
+      transform: translateX(0) translateY(0);
+    }
+
+    &.click {
+
+      #display-top-right {
+        animation-name: displaytopright;
+      }
+
+      #display-top-left {
+        animation-name: displaytopleft;
+      }
+
+      #display-bottom-right {
+        animation-name: displaybottomright;
+      }
+    }
+  }
+
+  #ph {
+
+    $duration: 4s;
+
+    #dialog {
+      opacity: 0;
+    }
+
+    #Ellipse1,
+    #Ellipse2,
+    #Ellipse3 {
+      opacity: 0;
+    }
+
+    #phone-changed,
+    #phone-circles,
+    #dialog,
+    #Ellipse1,
+    #Ellipse2,
+    #Ellipse3 {
+      animation-duration: $duration;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+      animation-direction: alternate;
+      animation-timing-function: linear;
+    }
+
+    &.click {
+
+      #phone-changed {
+        animation-name: phonechangedmove;
+      }
+
+      #phone-circles {
+        transform-origin: center;
+        transform-box: fill-box;
+        animation-name: phonecirclesopacity;
+      }
+
+      #dialog {
+        animation-name: phonedialogopacity;
+      }
+
+      #Ellipse1 {
+        animation-name: phonedialogelipseopacity1;
+      }
+
+      #Ellipse2 {
+        animation-name: phonedialogelipseopacity2;
+      }
+
+      #Ellipse3 {
+        animation-name: phonedialogelipseopacity3;
+      }
+    }
+  }
+}
+
+@keyframes displaytopright {
+  50% {
+    transform: translateX(-210px) translateY(-75px);
+  }
+
+  100% {
+    transform: translateX(-215px) translateY(25px);
+  }
+}
+
+@keyframes displaytopleft {
+  50% {
+    transform: translateX(-5px) translateY(86px);
+  }
+
+  100% {
+    transform: translateX(220px) translateY(160px);
+  }
+}
+
+@keyframes displaybottomright {
+  50% {
+    transform: translateX(5px) translateY(-125px);
+  }
+
+  100% {
+    transform: translateX(-230px) translateY(-215px);
+  }
+}
+
+@keyframes phonechangedmove {
+  10.52% {
+    transform: translateX(10px) translateY(-10px);
+  }
+
+  89.48% {
+    transform: translateX(10px) translateY(-10px);
+  }
+
+  100% {
+    transform: translateX(0px) translateY(0px);
+  }
+}
+
+@keyframes phonecirclesopacity {
+  10.52% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  17.88% {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  92% {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes phonedialogopacity {
+  17.88% {
+    opacity: 0;
+  }
+
+  26% {
+    opacity: 1;
+  }
+
+  84% {
+    opacity: 1;
+  }
+
+  92% {
+    opacity: 0;
+  }
+}
+
+@keyframes phonedialogelipseopacity1 {
+  30% {
+    opacity: 0;
+  }
+
+  33% {
+    opacity: 1;
+  }
+
+  68% {
+    opacity: 1;
+  }
+
+  71% {
+    opacity: 0;
+  }
+}
+
+@keyframes phonedialogelipseopacity2 {
+  37% {
+    opacity: 0;
+  }
+
+  40% {
+    opacity: 1;
+  }
+
+  68% {
+    opacity: 1;
+  }
+
+  71% {
+    opacity: 0;
+  }
+}
+
+@keyframes phonedialogelipseopacity3 {
+  44% {
+    opacity: 0;
+  }
+
+  47% {
+    opacity: 1;
+  }
+
+  68% {
+    opacity: 1;
+  }
+
+  71% {
+    opacity: 0;
+  }
+}
+
+// current support properties
+//
+// animation-name
+// animation-duration
+// animation-iteration-count
+// animation-delay
+// animation-direction
+// animation-timing-function
+//
