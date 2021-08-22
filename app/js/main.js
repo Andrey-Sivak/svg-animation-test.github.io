@@ -231,48 +231,64 @@ window.addEventListener('load', function () {
            return;
         }
 
-        let isAnimationEnd = true;
-        const animationDuration = 5000;
-
         const options = {
             display: {
                 elem: document.getElementById('display'),
                 isAnimationEnd: true,
+                animationDuration: 2000,
             },
             phone: {
                 elem: document.getElementById('phone'),
                 isAnimationEnd: true,
+                animationDuration: 4000,
             },
             laptop: {
                 elem: document.getElementById('laptop'),
                 isAnimationEnd: true,
+                animationDuration: 1000,
             },
         };
 
         for (const key in options) {
-            console.log(options[key]);
 
-            options[key].elem.addEventListener('mouseover', function (e) {
-                displayAnimation(this, options[key].isAnimationEnd);
-            })
-        }
+            const changeObserver = {
+                set: function (target, prop, val) {
+                    if (prop === 'isAnimationEnd' && val === false) {
+                        proxy.prop = val;
 
-        function displayAnimation(targetElement, isAnimationEnd) {
-            if (!isAnimationEnd) {
-                return;
+                        const el = target.elem;
+
+                        el.removeEventListener('mouseover', f);
+
+                        console.log(el);
+
+                        el.parentElement.classList.add('click');
+
+                        setTimeout(() => {
+                            // el.parentElement.classList.remove('click');
+                            // proxy.isAnimationEnd = true;
+                            // el.addEventListener('mouseover', f);
+                        }, target.animationDuration);
+
+                        return true;
+                    }
+
+                    target.prop = val;
+                    return true;
+                }
+            };
+
+            const proxy = new Proxy(options[key], changeObserver);
+
+            proxy.elem.addEventListener('mouseover', f);
+
+            function f() {
+                if (!proxy.isAnimationEnd) {
+                    return;
+                }
+
+                proxy.isAnimationEnd = false;
             }
-            isAnimationEnd = false;
-
-            if (!targetElement.parentElement.classList.contains('click')) {
-                targetElement.parentElement.classList.add('click');
-            }
-
-            setTimeout(() => {
-                isAnimationEnd = true;
-
-                // TODO: remove this code
-                targetElement.parentElement.classList.remove('click');
-            }, animationDuration);
         }
     })()
 

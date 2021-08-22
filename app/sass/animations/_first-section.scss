@@ -13,7 +13,6 @@
       animation-fill-mode: forwards;
       animation-direction: alternate;
       animation-timing-function: ease-in-out;
-      transform: translateX(0) translateY(0);
     }
 
     &.click {
@@ -33,7 +32,7 @@
   }
 
   #ph {
-    transform: translateY(93px) translateX(40px);
+    transform: translateY(90px) translateX(43px);
 
     $duration: 4s;
 
@@ -127,6 +126,12 @@
         animation-name: laptoplefttopmove;
       }
     }
+  }
+
+  #dot-run {
+    transform: translateY(325px);
+
+
   }
 }
 
@@ -273,8 +278,12 @@
     transform: translateX(-50px) translateY(-12px);
   }
 
-  100% {
+  75% {
     transform: translateX(-48px) translateY(18px);
+  }
+
+  100% {
+    transform: translateX(0px) translateY(0px);
   }
 }
 

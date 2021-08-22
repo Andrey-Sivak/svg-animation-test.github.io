@@ -1,7 +1,7 @@
 .first-section {
   max-width: 1413px;
-  padding-top: 250px;
-  height: 894px;
+  margin-top: 223px;
+  margin-bottom: 463px;
 
   &__caption {
     font-weight: bold;
@@ -35,7 +35,7 @@
   }
 
   &__img {
-    right: 0;
+    right: -34px;
     top: 50%;
     transform: translateY(-50%);
 
