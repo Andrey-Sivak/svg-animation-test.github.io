@@ -290,7 +290,26 @@ window.addEventListener('load', function () {
                 proxy.isAnimationEnd = false;
             }
         }
-    })()
+    })();
+
+    (function processAnimation() {
+        if (!document.getElementById('process-svg')) {
+            return;
+        }
+
+        const processSection = document.querySelector('.process');
+        const svg = document.getElementById('process-svg');
+
+        const processSectionTop = processSection.getBoundingClientRect().top - 100;
+
+        window.addEventListener('scroll', function (e) {
+
+            if (window.pageYOffset > processSectionTop
+                && !svg.classList.contains('active')) {
+                svg.classList.add('active');
+            }
+        })
+    })();
 
 });
 

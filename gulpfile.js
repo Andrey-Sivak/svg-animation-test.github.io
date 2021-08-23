@@ -20,7 +20,8 @@ const { src, dest, parallel, series, watch } = require("gulp"),
   webpcss = require("gulp-webp-css"),
   ttf2woff = require("gulp-ttf2woff"),
   ttf2woff2 = require("gulp-ttf2woff2"),
-  fonter = require("gulp-fonter");
+  fonter = require("gulp-fonter"),
+  replace = require('gulp-replace');
 
 function browsersync() {
   browserSync.init({
@@ -72,30 +73,19 @@ function scripts() {
 }
 
 function styles() {
-  return src(['./app/sass/**/*.scss'])
-    .pipe(eval(`${preprocessor}glob`)())
-    .pipe(eval(preprocessor)())
-    .pipe(
-      autoprefixer({
-          overrideBrowserslist: ["last 10 versions"],
-          grid: true
-      })
-    )
-    .pipe(webpcss())
-    .pipe(dest("./app/css"))
-    .pipe(
-      cleancss({
-        level: {
-            1: {
-                specialComments: 0
-            }
-        }
-        /* format: 'beautify' */,
-      })
-    )
-    .pipe(rename({ suffix: ".min" }))
-    .pipe(dest("./dist/css"))
-    .pipe(browserSync.stream());
+
+    return gulp.src('./app/sass/**/*.scss')
+        .pipe(sass.sync().on('error', sass.logError))
+        .pipe(replace('../../', '../'))
+        .pipe(
+            autoprefixer({
+                overrideBrowserslist: ["last 10 versions"],
+                grid: true
+            })
+        )
+        .pipe(rename({ suffix: ".min" }))
+        .pipe(dest("./dist/css"))
+        .pipe(browserSync.stream());
 }
 
 function images() {
