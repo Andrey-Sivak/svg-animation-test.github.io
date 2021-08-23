@@ -28,6 +28,21 @@
       #display-bottom-right {
         animation-name: displaybottomright;
       }
+
+      &.unclick {
+
+        #display-top-right {
+          animation-name: displaytoprightreverse;
+        }
+
+        #display-top-left {
+          animation-name: displaytopleftreverse;
+        }
+
+        #display-bottom-right {
+          animation-name: displaybottomrightreverse;
+        }
+      }
     }
   }
 
@@ -143,6 +158,10 @@
 }
 
 @keyframes displaytopright {
+  0% {
+    transform: translateX(0px) translateY(0px);
+  }
+
   50% {
     transform: translateX(-210px) translateY(-75px);
   }
@@ -152,7 +171,25 @@
   }
 }
 
+@keyframes displaytoprightreverse {
+  0% {
+    transform: translateX(-215px) translateY(25px);
+  }
+
+  50% {
+    transform: translateX(-210px) translateY(-75px);
+  }
+
+  100% {
+    transform: translateX(0px) translateY(0px);
+  }
+}
+
 @keyframes displaytopleft {
+  0% {
+    transform: translateX(0px) translateY(0px);
+  }
+
   50% {
     transform: translateX(-5px) translateY(86px);
   }
@@ -162,13 +199,45 @@
   }
 }
 
+@keyframes displaytopleftreverse {
+  0% {
+    transform: translateX(220px) translateY(160px);
+  }
+
+  50% {
+    transform: translateX(-5px) translateY(86px);
+  }
+
+  100% {
+    transform: translateX(0px) translateY(0px);
+  }
+}
+
 @keyframes displaybottomright {
+  0% {
+    transform: translateX(0px) translateY(0px);
+  }
+
   50% {
     transform: translateX(5px) translateY(-125px);
   }
 
   100% {
     transform: translateX(-230px) translateY(-215px);
+  }
+}
+
+@keyframes displaybottomrightreverse {
+  0% {
+    transform: translateX(-230px) translateY(-215px);
+  }
+
+  50% {
+    transform: translateX(5px) translateY(-125px);
+  }
+
+  0% {
+    transform: translateX(0px) translateY(0px);
   }
 }
 

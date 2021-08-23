@@ -253,21 +253,32 @@ window.addEventListener('load', function () {
 
             const changeObserver = {
                 set: function (target, prop, val) {
+
                     if (prop === 'isAnimationEnd' && val === false) {
                         proxy.prop = val;
 
                         const el = target.elem;
+                        const isDisplay = el === document.getElementById('display');
 
-                        el.removeEventListener('mouseover', f);
+                        el.removeEventListener('mouseover', hoverHandler);
 
-                        console.log(el);
+                        if (isDisplay &&
+                            el.parentElement.classList.contains('click') &&
+                            !el.parentElement.classList.contains('unclick')) {
+
+                            el.parentElement.classList.add('unclick');
+                        }
 
                         el.parentElement.classList.add('click');
 
                         setTimeout(() => {
-                            // el.parentElement.classList.remove('click');
-                            // proxy.isAnimationEnd = true;
-                            // el.addEventListener('mouseover', f);
+                                if (isDisplay && el.parentElement.classList.contains('unclick')) {
+                                    el.parentElement.classList.remove('click', 'unclick');
+                                } else if (!isDisplay) {
+                                    el.parentElement.classList.remove('click');
+                                }
+                            proxy.isAnimationEnd = true;
+                            el.addEventListener('mouseover', hoverHandler);
                         }, target.animationDuration);
 
                         return true;
@@ -280,9 +291,9 @@ window.addEventListener('load', function () {
 
             const proxy = new Proxy(options[key], changeObserver);
 
-            proxy.elem.addEventListener('mouseover', f);
+            proxy.elem.addEventListener('mouseover', hoverHandler);
 
-            function f() {
+            function hoverHandler() {
                 if (!proxy.isAnimationEnd) {
                     return;
                 }
