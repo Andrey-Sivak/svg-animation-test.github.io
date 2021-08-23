@@ -131,7 +131,14 @@
   #dot-run {
     transform: translateY(325px);
 
+    $duration: 5.5s;
 
+    #dot {
+      animation-duration: $duration;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+      animation-name: dotMove;
+    }
   }
 }
 
@@ -311,11 +318,67 @@
   }
 }
 
-//
-// animation-name
-// animation-duration
-// animation-iteration-count
-// animation-delay
-// animation-direction
-// animation-timing-function
-//
+@keyframes dotMove {
+  5.45% {
+    transform: translateX(50px) translateY(20px);
+  }
+
+  14.45% {
+    transform: translateX(-85px) translateY(60px);
+  }
+
+  19.9% {
+    transform: translateX(-37px) translateY(78px);
+  }
+
+  28.9% {
+    transform: translateX(-170px) translateY(122px);
+  }
+
+  38.5% {
+    transform: translateX(-38px) translateY(183px);
+  }
+
+  44% {
+    transform: translateX(26px) translateY(163px);
+  }
+
+  60% {
+    transform: translateX(299px) translateY(203px);
+  }
+
+  66.5% {
+    transform: translateX(387px) translateY(234px);
+  }
+
+  75% {
+    transform: translateX(500px) translateY(180px);
+  }
+
+  81.5% {
+    transform: translateX(417px) translateY(149px);
+  }
+
+  87.5% {
+    transform: translateX(471px) translateY(121px);
+  }
+
+  94% {
+    transform: translateX(340px) translateY(73px);
+    opacity: 1;
+  }
+
+  94.5% {
+    transform: translateX(340px) translateY(73px);
+    opacity: 0;
+  }
+
+  99.99% {
+    transform: translateX(0px) translateY(0px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0px) translateY(0px);
+    opacity: 1;
+  }
+}
