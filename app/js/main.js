@@ -44,93 +44,18 @@ window.addEventListener('load', function () {
     })();
 
     (function form() {
-        if (!document.querySelector('form')) {
+        if (!document.querySelector('.contact-section__block form')) {
             return;
         }
 
-        const form = document.querySelector('form');
+        const form = document.querySelector('.contact-section__block form');
         const textarea = form.querySelector('textarea');
-
         const budgetList = form.querySelector('.form__field.budget');
-
-        let fileInput = form.querySelector('input[name="file1"]');
-        const filesList = form.querySelector('.files');
-        let inputTypeFileCount = 1;
+        const fileInput = form.querySelector('input[name="file1"]');
 
         textarea.addEventListener('input', textareaHandleInput);
-
         fileInput.addEventListener('change', handleFileInput);
-
         budgetList.addEventListener('click', selectBudget);
-
-        function handleFileInput(e) {
-            const files = [...this.files];
-
-            if (files.length) {
-                const newInput = cloneInput(this);
-
-                this.classList.add('hide');
-                this.removeEventListener('change', handleFileInput);
-                this.parentElement.appendChild(newInput);
-
-                files.forEach(f => {
-                    const fileElem = createFileItem(f);
-                    filesList.appendChild(fileElem);
-                })
-            }
-
-            checkEmpty(filesList);
-        }
-
-        (function validate() {
-            const form = $('form');
-            
-            $.each(form, function () {
-                $(this).validate({
-                    ignore: [],
-                    errorClass: 'error',
-                    validClass: 'success',
-                    rules: {
-                        f_name: {
-                            required: true,
-                            f_name: true,
-                        },
-                        email: {
-                            required: true,
-                            email: true,
-                        },
-                        message: {
-                            required: true,
-                        },
-                        check: {
-                            required: true,
-                        },
-                    },
-                    errorElement : 'span',
-                    errorPlacement: function(error, element) {
-                        const placement = $(element).data('error');
-                        if (placement) {
-                            $(placement).append(error);
-                        } else {
-                            error.insertBefore(element);
-                        }
-                    },
-                    messages: {
-                        f_name: 'Недопустимое значение',
-                        email: 'Некорректный e-mail'
-                    }
-                })
-            });
-
-            $.validator.addMethod('email', function (value, element) {
-                return this.optional(element) || /\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,6}/.test(value);
-            });
-
-            $.validator.addMethod('f_name', function (value, element) {
-                return this.optional(element) || /^[a-zа-яё]/i.test(value);
-            });
-
-        })();
 
         function selectBudget(e) {
             const target = e.target;
@@ -149,80 +74,6 @@ window.addEventListener('load', function () {
                 target.classList.add('active');
                 budgetInput.value = target.innerHTML;
             }
-        }
-
-        function textareaHandleInput(e) {
-            if (this.scrollHeight > this.clientHeight) {
-                this.style.height = this.scrollHeight + 'px';
-            }
-        }
-
-        function removeFile(elem) {
-            const targetInputId = elem.dataset.input;
-            elem.parentElement.removeChild(elem);
-
-            const otherInputsList = document.querySelector(`.files__item[data-input=${targetInputId}]`);
-
-            if (!otherInputsList) {
-                const emptyInput = document.getElementById(targetInputId);
-                emptyInput.parentElement.removeChild(emptyInput);
-            }
-        }
-
-        function createFileItem(file) {
-            const fileElem = document.createElement('div');
-            fileElem.classList.add('files__item');
-            fileElem.dataset.input = `file${inputTypeFileCount - 1}`;
-            const fileName = document.createElement('p');
-            const removeBtn = document.createElement('span');
-            removeBtn.classList.add('remove');
-
-            fileName.innerHTML = file.name;
-            fileElem.addEventListener('click', function (e) {
-                const target = e.target;
-
-                if (target.classList.contains('remove')) {
-                    removeFile(this);
-                    checkEmpty(filesList);
-                    switchFileBtn(filesList);
-                }
-            });
-
-            fileElem.appendChild(fileName);
-            fileElem.appendChild(removeBtn);
-
-            return fileElem;
-        }
-
-        function checkEmpty(elem) {
-            if (elem.children.length && elem.classList.contains('empty')) {
-                elem.classList.remove('empty');
-            } else if (!elem.children.length && !elem.classList.contains('empty')) {
-                elem.classList.add('empty');
-            }
-        }
-
-        function switchFileBtn(list) {
-            if (!list.length) {
-                const btn = document.querySelector('input[type="file"]');
-
-                if (btn.classList.contains('add-more')) {
-                    btn.classList.remove('add-more');
-                }
-            }
-        }
-
-        function cloneInput(input) {
-            const newInput = input.cloneNode();
-            inputTypeFileCount++;
-            newInput.setAttribute('id', `file${inputTypeFileCount}`);
-            newInput.setAttribute('name', `file${inputTypeFileCount}`);
-            newInput.classList.add('add-more');
-            document.querySelector('.file-label')
-                .setAttribute('for', `file${inputTypeFileCount}`);
-            newInput.addEventListener('change', handleFileInput);
-
-            return newInput;
         }
     })();
 
@@ -322,8 +173,220 @@ window.addEventListener('load', function () {
         })
     })();
 
+    (function popup() {
+        if (!document.querySelector('.popup')) {
+            return;
+        }
+
+        const popup = document.querySelector('.popup');
+        const popupBtns = [...document.querySelectorAll('.popup-show')];
+        const form = document.querySelector('.popup form');
+        const textarea = form.querySelector('textarea');
+        const fileInput = form.querySelector('input[type="file"]');
+
+        textarea.addEventListener('input', textareaHandleInput);
+        fileInput.addEventListener('change', handleFileInput);
+
+        popup.addEventListener('click', hidePopup);
+        popupBtns.forEach(p => {
+            p.addEventListener('click', showPopup);
+        });
+
+        function showPopup(e) {
+            e.preventDefault();
+
+            if (!popup.classList.contains('active')) {
+                popup.classList.add('active');
+                document.body.classList.add('no-scrolling');
+            }
+        }
+
+        function hidePopup(e) {
+            const target = e.target;
+
+            if (target.dataset.close && popup.classList.contains('active')) {
+                e.preventDefault();
+
+                popup.classList.remove('active');
+                document.body.classList.remove('no-scrolling');
+            }
+        }
+    })();
+
+    (function validate() {
+        const form = $('form');
+
+        $.each(form, function () {
+            $(this).validate({
+                ignore: [],
+                errorClass: 'error',
+                validClass: 'success',
+                rules: {
+                    f_name: {
+                        required: true,
+                        f_name: true,
+                    },
+                    email: {
+                        required: true,
+                        email: true,
+                    },
+                    message: {
+                        required: true,
+                    },
+                    check: {
+                        required: true,
+                    },
+                    popup_f_name: {
+                        required: true,
+                        f_name: true,
+                    },
+                    popup_email: {
+                        required: true,
+                        email: true,
+                    },
+                    popup_message: {
+                        required: true,
+                    },
+                    popup_check: {
+                        required: true,
+                    },
+                },
+                errorElement : 'span',
+                errorPlacement: function(error, element) {
+                    const placement = $(element).data('error');
+                    if (placement) {
+                        $(placement).append(error);
+                    } else {
+                        error.insertBefore(element);
+                    }
+                },
+                messages: {
+                    f_name: 'Недопустимое значение',
+                    popup_f_name: 'Недопустимое значение',
+                    email: 'Некорректный e-mail',
+                    popup_email: 'Некорректный e-mail'
+                }
+            })
+        });
+
+        $.validator.addMethod('email', function (value, element) {
+            return this.optional(element) || /\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,6}/.test(value);
+        });
+
+        $.validator.addMethod('f_name', function (value, element) {
+            return this.optional(element) || /^[a-zа-яё]/i.test(value);
+        });
+
+    })();
+
 });
 
 function checkWidth() {
     return mobileWidth > document.documentElement.clientWidth;
+}
+
+function textareaHandleInput() {
+    if (this.scrollHeight > this.clientHeight) {
+        this.style.height = this.scrollHeight + 'px';
+    }
+}
+
+function handleFileInput() {
+    const files = [...this.files];
+    const filesList = this.parentElement.querySelector('.files');
+
+    if (files.length) {
+        const newInput = cloneInput(this);
+
+        this.classList.add('hide');
+        this.removeEventListener('change', handleFileInput);
+        this.parentElement.appendChild(newInput);
+
+        files.forEach(f => {
+            const fileElem = createFileItem(f, filesList, this);
+            filesList.appendChild(fileElem);
+        })
+    }
+
+    checkEmpty(filesList);
+}
+
+function removeFile(elem) {
+    const targetInputId = elem.dataset.input;
+    elem.parentElement.removeChild(elem);
+
+    const otherInputsList = document.querySelector(`.files__item[data-input=${targetInputId}]`);
+
+    if (!otherInputsList) {
+        const emptyInput = document.getElementById(targetInputId);
+        emptyInput.parentElement.removeChild(emptyInput);
+    }
+}
+
+function createFileItem(file, filesList, input) {
+    const inputTypeFileCount = input.parentElement
+                                    .querySelectorAll('input[type="file"]')
+                                    .length;
+    const fileId = input.getAttribute('id');
+    const filteredFileId = fileId.replace(/[0-9]/g, '');
+
+    const fileElem = document.createElement('div');
+    fileElem.classList.add('files__item');
+    fileElem.dataset.input = `${filteredFileId}${inputTypeFileCount - 1}`;
+    const fileName = document.createElement('p');
+    const removeBtn = document.createElement('span');
+    removeBtn.classList.add('remove');
+
+    fileName.innerHTML = file.name;
+    fileElem.addEventListener('click', function (e) {
+        const target = e.target;
+
+        if (target.classList.contains('remove')) {
+            removeFile(this);
+            checkEmpty(filesList);
+            switchFileBtn(filesList);
+        }
+    });
+
+    fileElem.appendChild(fileName);
+    fileElem.appendChild(removeBtn);
+
+    return fileElem;
+}
+
+function checkEmpty(elem) {
+    if (elem.children.length && elem.classList.contains('empty')) {
+        elem.classList.remove('empty');
+    } else if (!elem.children.length && !elem.classList.contains('empty')) {
+        elem.classList.add('empty');
+    }
+}
+
+function switchFileBtn(list) {
+    if (!list.children.length) {
+        const btn = list.parentElement.querySelector('input[type="file"]');
+        console.log(btn);
+
+        if (btn.classList.contains('add-more')) {
+            btn.classList.remove('add-more');
+        }
+    }
+}
+
+function cloneInput(input) {
+    const fileId = input.getAttribute('id');
+    const filteredFileId = fileId.replace(/[0-9]/g, '');
+
+    const newInput = input.cloneNode();
+    const inputTypeFileCount = input.parentElement
+                                    .querySelectorAll('input[type="file"]')
+                                    .length + 1;
+    newInput.setAttribute('id', `${filteredFileId}${inputTypeFileCount}`);
+    newInput.setAttribute('name', `${filteredFileId}${inputTypeFileCount}`);
+    newInput.classList.add('add-more');
+    document.querySelector('.file-label')
+        .setAttribute('for', `${filteredFileId}${inputTypeFileCount}`);
+    newInput.addEventListener('change', handleFileInput);
+
+    return newInput;
 }

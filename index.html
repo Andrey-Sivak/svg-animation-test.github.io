@@ -140,7 +140,10 @@
         <p class="first-section__caption_bottom">Software Consulting Agency</p>
       </div>
       <p class="first-section__note">We are a design and web development studio that delivers superlative work for startups, agencies or any human being</p>
-      <a href="#" class="text-center first-section__btn">Request estimate</a>
+      <div class="first-section__btn_wrap pos-r">
+        <span class="absolute-center pos-a hov"></span>
+        <a href="#" class="pos-r text-center popup-show first-section__btn"><span class="first-section__btn_after"></span>Request estimate</a>
+      </div>
     </div>
 
     <div class="first-section__img pos-a">
@@ -813,10 +816,70 @@
         <a href="#" class="footer__menu_link absolute-center pos-a hover">Careers</a>
       </li>
       <li class="pos-r footer__menu_item active">
-        <a href="#" class="footer__menu_link">Request Estimate</a>
+        <a href="#" class="popup-show footer__menu_link">Request Estimate</a>
       </li>
     </ul>
   </nav>
 </footer>
+
+<div class="popup" data-close="true">
+  <div class="pos-a absolute-center-y popup__circle-bg"></div>
+  <span class="popup-close pos-a" data-close="true">Close</span>
+  <form action="#" class="form pos-r">
+
+    <div class="full-width pos-r form__field">
+      <label for="popup_f_name" class="form__label">Name</label>
+      <input type="text"
+             name="popup_f_name"
+             id="popup_f_name"
+             class="form__input">
+      <span class="warn"></span>
+    </div>
+
+    <div class="full-width pos-r form__field">
+      <label for="popup_email" class="form__label">Email</label>
+      <input type="text"
+             name="popup_email"
+             id="popup_email"
+             class="form__input">
+      <span class="warn"></span>
+    </div>
+
+    <div class="full-width pos-r form__field">
+      <label for="popup_message" class="form__label">Product Details</label>
+      <textarea  name="popup_message"
+                 id="popup_message"
+                 class="form__input"
+                 rows="1"></textarea>
+      <span class="warn"></span>
+    </div>
+
+    <div class="full-width pos-r form__field file no-text">
+      <label for="popup_file1" class="form__label file-label">Attach File</label>
+      <div class="pos-r full-width form__input_wrap">
+        <div class="files empty"></div>
+        <input name="popup_file1"
+               type="file"
+               id="popup_file1"
+               accept=".jpg, .png, .docx, .doc, .pdf, .rar, .zip"
+               class="pos-r form__input">
+      </div>
+      <p class="form__note full-width">Your resume</p>
+    </div>
+
+    <div class="full-width pos-r form__field checkbox">
+      <label for="popup_check" class="pos-r form__label">
+        <input name="popup_check"
+               type="checkbox"
+               id="popup_check"
+               class="pos-a">
+        <span class="text">I agree to the processing of personal data</span>
+        <span class="warn"></span>
+      </label>
+    </div>
+
+    <button type="submit" class="text-center form__btn">Send</button>
+  </form>
+</div>
 </body>
 </html>

@@ -126,26 +126,6 @@ gulp.task("otf2ttf", function () {
     .pipe(dest("./app/fonts/"));
 });
 
-/*function buildcopy() {
-  return src(
-    [
-      // "{app/js,app/css}/!*.min.*",
-      "app/js/!**!/!*",
-      "app/css/!**!/!*",
-      "app/images/!**!/!*.*",
-      "!app/images/src/!**!/!*",
-      "app/fonts/!**!/!*.woff2",
-    ],
-    { base: "app/" }
-  ).pipe(dest("dist"));
-}*/
-
-/*async function buildhtml() {
-  let includes = new ssi("app/", "dist/", "/!**!/!*.html");
-  includes.compile();
-  del("dist/parts", { force: true });
-}*/
-
 function cleandist() {
   return del("./dist/**/*", { force: true });
 }
@@ -176,17 +156,17 @@ function startwatch() {
     { usePolling: true },
     scripts
   );
-  watch(
-    "./app/img/**/*.{jpg,jpeg,png,webp,svg,gif}",
+  /*watch(
+    "./app/img/!**!/!*.{jpg,jpeg,png,webp,svg,gif}",
     { usePolling: true },
     images
-  );
-  watch(`./**/*.{${fileswatch}}`, {
+  );*/
+  /*watch(`./!**!/!*.{${fileswatch}}`, {
       usePolling: true
   }).on(
     "change",
     browserSync.reload
-  );
+  );*/
 }
 
 exports.scripts = scripts;
