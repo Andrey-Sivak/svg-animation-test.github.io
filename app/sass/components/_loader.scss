@@ -8,7 +8,7 @@
   left: 0;
   right: 0;
   @include flex-center();
-  background: linear-gradient(179.49deg, #FFE686 5.25%, #F7B545 59.89%, #F6A51B 96.87%);
+  background-color: #141314;
 
   &.active {
     opacity: 1;

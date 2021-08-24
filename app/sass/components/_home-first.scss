@@ -83,11 +83,11 @@
 
     &:hover {
 
-      /*.first-section__btn_after {
+      .first-section__btn_after {
         animation-iteration-count: 1;
-        animation-duration: .4s;
-        animation-name: buttonBorderWidth;
-      }*/
+        animation-duration: .5s;
+        animation-name: buttonHover;
+      }
     }
   }
 
@@ -107,6 +107,16 @@
 
   80% {
     background-size: 200% 200%;
+  }
+
+  100% {
+    background-size: 200% 200%;
+  }
+}
+
+@keyframes buttonHover {
+  0% {
+    background-size: 0 100%;
   }
 
   100% {

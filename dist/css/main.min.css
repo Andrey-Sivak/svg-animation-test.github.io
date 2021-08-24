@@ -257,8 +257,7 @@ input[type="number"] {
           align-items: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  background: -o-linear-gradient(270.51deg, #FFE686 5.25%, #F7B545 59.89%, #F6A51B 96.87%);
-  background: linear-gradient(179.49deg, #FFE686 5.25%, #F7B545 59.89%, #F6A51B 96.87%); }
+  background-color: #141314; }
   .loader.active {
     opacity: 1;
     z-index: 10000; }
@@ -1087,12 +1086,13 @@ input[type="number"] {
               animation-direction: alternate;
       -webkit-animation-name: buttonBorderWidth;
               animation-name: buttonBorderWidth; }
-    .home-page .first-section__btn:hover {
-      /*.first-section__btn_after {
-        animation-iteration-count: 1;
-        animation-duration: .4s;
-        animation-name: buttonBorderWidth;
-      }*/ }
+    .home-page .first-section__btn:hover .first-section__btn_after {
+      -webkit-animation-iteration-count: 1;
+              animation-iteration-count: 1;
+      -webkit-animation-duration: .5s;
+              animation-duration: .5s;
+      -webkit-animation-name: buttonHover;
+              animation-name: buttonHover; }
   .home-page .first-section__img {
     right: -34px;
     top: 50%;
@@ -1673,6 +1673,18 @@ input[type="number"] {
     background-size: 0 100%; }
   80% {
     background-size: 200% 200%; }
+  100% {
+    background-size: 200% 200%; } }
+
+@-webkit-keyframes buttonHover {
+  0% {
+    background-size: 0 100%; }
+  100% {
+    background-size: 200% 200%; } }
+
+@keyframes buttonHover {
+  0% {
+    background-size: 0 100%; }
   100% {
     background-size: 200% 200%; } }
 
