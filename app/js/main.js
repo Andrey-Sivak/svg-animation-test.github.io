@@ -161,16 +161,112 @@ window.addEventListener('load', function () {
 
         const processSection = document.querySelector('.process');
         const svg = document.getElementById('process-svg');
+        const processTextItems = [...processSection.querySelectorAll('.third-section__item')];
 
         const processSectionTop = processSection.getBoundingClientRect().top - 100;
 
-        window.addEventListener('scroll', function (e) {
+        const options = [
+            {
+                textElement: processTextItems[0],
+                svgTargetElement: svg.querySelector('#process-design'),
+                animationDuration: 3500,
+            },
+            {
+                textElement: processTextItems[1],
+                svgTargetElement: svg.querySelector('#process-phone'),
+                animationDuration: 2400,
+            },
+            {
+                textElement: processTextItems[2],
+                svgTargetElement: svg.querySelector('#process-phone'),
+                animationDuration: 2400,
+            },
+            {
+                textElement: processTextItems[3],
+                svgTargetElement: svg.querySelector('#process-phone'),
+                animationDuration: 1000,
+            },
+            {
+                textElement: processTextItems[4],
+                svgTargetElement: svg.querySelector('#process-marketing'),
+                animationDuration: 2000,
+            },
+            {
+                textElement: processTextItems[5],
+                svgTargetElement: svg.querySelector('#process-launch'),
+                animationDuration: 1300,
+            },
+        ];
 
-            if (window.pageYOffset > processSectionTop
-                && !svg.classList.contains('active')) {
-                svg.classList.add('active');
+        let currentAnimation = 0;
+        let isAnimationEnd = true;
+
+
+        processSection.addEventListener('wheel', function(e) {
+
+            if (!isAnimationEnd) {
+                e.preventDefault();
+                return;
             }
-        })
+
+            let wDelta = e.wheelDelta < 0 ? 'down' : 'up';
+
+            if (window.pageYOffset > processSectionTop) {
+                if (wDelta === 'down' && currentAnimation < options.length) {
+                    e.preventDefault();
+                    currentAnimation++;
+                    animate(currentAnimation - 1, wDelta);
+                } else if (wDelta === 'up' && currentAnimation) {
+                    e.preventDefault();
+                    currentAnimation--;
+                    animate(currentAnimation, wDelta);
+                }
+            }
+        });
+
+        function animate(i, direction) {
+            isAnimationEnd = false;
+            const elem = options[i].textElement;
+            const svg = options[i].svgTargetElement;
+
+            if (direction === 'up') {
+                // svg.classList.add('unanimate');
+            } else {
+                if (i === 1 || i === 4 || i === 5) {
+                    options[i - 1].svgTargetElement.classList = [];
+                }
+
+                if (i === 2) {
+                    svg.classList.add('animate2');
+                }
+
+                if (i === 3) {
+                    svg.classList.add('animate3');
+                }
+
+                elem.classList.add('show');
+                svg.classList.add('animate');
+            }
+
+            document.body.classList.add('no-scrolling');
+
+            setTimeout(() => {
+                isAnimationEnd = true;
+
+                if (direction === 'up') {
+
+                    if (elem.nextElementSibling
+                        && elem.nextElementSibling.classList.contains('show')) {
+
+                        elem.nextElementSibling.classList.remove('show');
+                    } else {
+                        elem.classList.remove('show');
+                    }
+                }
+
+                document.body.classList.remove('no-scrolling');
+            }, options[i].animationDuration)
+        }
     })();
 
     (function popup() {
