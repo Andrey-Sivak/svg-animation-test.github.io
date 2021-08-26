@@ -3175,11 +3175,17 @@ input[type="number"] {
     width: 277px; }
     .home-page .second-section__item_bg {
       z-index: -1; }
+    .home-page .second-section__item.active .second-section__item_shine {
+      -webkit-transform: translateX(0) scale(1.6) !important;
+          -ms-transform: translateX(0) scale(1.6) !important;
+              transform: translateX(0) scale(1.6) !important;
+      -webkit-transition: all ease-in-out .3s;
+      -o-transition: all ease-in-out .3s;
+      transition: all ease-in-out .3s; }
     .home-page .second-section__item_shine {
       z-index: -2;
-      top: -145px;
-      -webkit-filter: blur(50px);
-              filter: blur(50px); }
+      left: -80px;
+      top: -80px; }
     .home-page .second-section__item_caption {
       font-weight: bold;
       font-size: 36px;

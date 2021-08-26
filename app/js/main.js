@@ -374,6 +374,52 @@ window.addEventListener('load', function () {
         });
 
     })();
+    
+    (function servicesAnimation() {
+        if (!document.querySelector('.second-section__item')) {
+            return;
+        }
+
+        const items = [...document.querySelectorAll('.second-section__item')];
+        const shines = [...document.querySelectorAll('.second-section__item_shine')];
+        const itemsCoords = {};
+
+        items.forEach((item, i) => {
+            item.addEventListener('mouseenter', (e) => {
+
+                item.classList.add('active');
+            });
+
+            item.addEventListener('mouseleave', (e) => {
+                item.classList.remove('active');
+            });
+
+            const rect = item.getBoundingClientRect();
+            const itemX = rect.left + item.offsetWidth / 2 + pageXOffset;
+            const itemY = rect.top + item.offsetHeight / 2 + pageYOffset;
+
+                Object.defineProperty(itemsCoords, i, {
+                value: {
+                    x: itemX,
+                    y: itemY,
+                }
+            })
+        });
+
+        document.addEventListener('mousemove', moveByMouse);
+
+        function moveByMouse(e) {
+            let mouseX = e.x + pageXOffset;
+            let mouseY = e.y + pageYOffset;
+
+            shines.forEach((shine, i) => {
+                let x = mouseX - itemsCoords[i].x;
+                let y = mouseY - itemsCoords[i].y;
+
+                shine.style.transform = `rotate(${57.2958 * getArctctg(x, y)}deg) translateX(110px)`;
+            })
+        }
+    })();
 
 });
 
@@ -485,4 +531,24 @@ function cloneInput(input) {
     newInput.addEventListener('change', handleFileInput);
 
     return newInput;
+}
+
+function getCoords(elem) {
+    const box = elem.getBoundingClientRect();
+
+    return {
+        top: box.top + pageYOffset,
+        left: box.left + pageXOffset
+    };
+
+}
+
+function getArctctg(x, y) {
+    if (x > 0 && y > 0) return Math.PI / 2 - Math.atan(x / y);
+
+    if (x < 0 && y > 0) return Math.PI / 2 - Math.atan(x / y);
+
+    if (x < 0 && y < 0) return Math.PI + Math.atan(y / x);
+
+    if (x > 0 && y < 0) return 3 * Math.PI / 2 + Math.abs(Math.atan(x / y));
 }
