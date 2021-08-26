@@ -1,6 +1,7 @@
 $duration: 1.3s;
 
 #process-launch {
+  @include transition-ease;
 
   &,
   &-circle,
@@ -26,6 +27,22 @@ $duration: 1.3s;
 
     #process-launch-check {
       animation-name: processLaunchCheck;
+    }
+  }
+
+  &.unanimate {
+    opacity: 1;
+
+    #process-launch-circles {
+      animation-name: processLaunchCirclesOpacityReverse;
+    }
+
+    #process-launch-circle {
+      animation-name: processLaunchCircleOpacityReverse;
+    }
+
+    #process-launch-check {
+      animation-name: processLaunchCheckReverse;
     }
   }
 }
@@ -86,5 +103,65 @@ $duration: 1.3s;
     opacity: 1;
     stroke-width: 27;
     d: path("M 288 314.5 L 380.5 416.5 L 508.5 236");
+  }
+}
+
+
+@keyframes processLaunchCircleOpacityReverse {
+  0% {
+    opacity: 1;
+  }
+
+  62.5% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes processLaunchCirclesOpacityReverse {
+  0% {
+    opacity: 1;
+  }
+
+  44% {
+    opacity: 1;
+  }
+
+  60% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes processLaunchCheckReverse {
+  0% {
+    opacity: 1;
+    stroke-width: 27;
+    d: path("M 288 314.5 L 380.5 416.5 L 508.5 236");
+  }
+
+  25% {
+    d: path("M 288 314.5 L 380.5 416.5 L 380.5 416.5");
+  }
+
+  41% {
+    opacity: 1;
+    stroke-width: 27;
+    d: path("M 288 314.5 L 288 314.5 L 288 314.5");
+  }
+
+  42% {
+    stroke-width: 0;
+  }
+
+  100% {
+    stroke-width: 0;
+    d: path("M 288 314.5 L 288 314.5 L 288 314.5");
   }
 }

@@ -6,6 +6,7 @@ $duration: 3.8s;
   animation-fill-mode: forwards;
   animation-timing-function: ease-in-out;
   opacity: 0;
+  @include transition-ease;
 
   &-circles,
   &-top-rect,
@@ -111,82 +112,70 @@ $duration: 3.8s;
     #process-design-bottom-rect {
       animation-name: processDesignBottomRectOpacity;
     }
+
+    &.hide {
+      opacity: 0!important;
+    }
   }
 
   &.unanimate {
-    animation-name: processDesignOpacity;
-    animation-direction: reverse;
-
-    #process-design-circles,
-    #process-design-top-rect,
-    #process-design-center-rect,
-    #process-design-bottom-rect,
-    #process-design-top-line-t,
-    #process-design-top-line-c,
-    #process-design-top-line-b,
-    #process-design-center-line-b,
-    #process-design-center-line-t,
-    #process-design-center-line-c,
-    #process-design-bottom-line-t,
-    #process-design-bottom-line-b {
-      animation-direction: reverse;
-    }
+    animation-name: processDesignOpacityReverse;
 
     #process-design-top  {
 
       &-line-t {
-        animation-name: processDesignTopLineTop;
+        animation-name: processDesignTopLineTopReverse;
       }
 
       &-line-c {
-        animation-name: processDesignTopLineCenter;
+        animation-name: processDesignTopLineCenterReverse;
       }
 
       &-line-b {
-        animation-name: processDesignTopLineBottom;
+        animation-name: processDesignTopLineBottomReverse;
       }
     }
 
     #process-design-center {
 
       &-line-t {
-        animation-name: processDesignCenterLineTop;
+        animation-name: processDesignCenterLineTopReverse;
       }
 
       &-line-c {
-        animation-name: processDesignCenterLineCenter;
+        animation-name: processDesignCenterLineCenterReverse;
       }
 
       &-line-b {
-        animation-name: processDesignCenterLineBottom;
+        animation-name: processDesignCenterLineBottomReverse;
       }
     }
 
     #process-design-bottom {
 
       &-line-t {
-        animation-name: processDesignBottomLineTop;
+        animation-name: processDesignBottomLineTopReverse;
       }
 
       &-line-b {
-        animation-name: processDesignBottomLineBottom;
+        animation-name: processDesignBottomLineBottomReverse;
       }
     }
 
     #process-design-circles {
-      animation-name: processDesignCirclesOpacity;
+      animation-name: processDesignCirclesOpacityReverse;
     }
 
     #process-design-top-rect {
-      animation-name: processDesignTopRectOpacity;
+      animation-name: processDesignTopRectOpacityReverse;
     }
 
     #process-design-center-rect {
-      animation-name: processDesignCenterRectOpacity;
+      animation-name: processDesignCenterRectOpacityReverse;
     }
 
     #process-design-bottom-rect {
-      animation-name: processDesignBottomRectOpacity;
+      animation-name: processDesignBottomRectOpacityReverse;
     }
   }
 }
@@ -471,5 +460,291 @@ $duration: 3.8s;
   100% {
     opacity: 1;
     d: path("M 252 592 H 406");
+  }
+}
+
+
+
+@keyframes processDesignCirclesOpacityReverse {
+  0% {
+    opacity: 1;
+  }
+
+  93% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes processDesignTopRectOpacityReverse {
+  0% {
+    opacity: 1;
+  }
+
+  83% {
+    opacity: 1;
+  }
+
+  89% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes processDesignCenterRectOpacityReverse {
+  0% {
+    opacity: 1;
+  }
+
+  62% {
+    opacity: 1;
+  }
+
+  68% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes processDesignBottomRectOpacityReverse {
+  0% {
+    opacity: 1;
+  }
+
+  41% {
+    opacity: 1;
+  }
+
+  48% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes processDesignOpacityReverse {
+  0% {
+    opacity: 1;
+  }
+
+  92% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes processDesignTopLineTopReverse {
+  0% {
+    opacity: 1;
+    d: path("M 210 50 H 466.5");
+  }
+
+  61% {
+    d: path("M 210 50 H 466.5");
+  }
+
+  78% {
+    opacity: 1;
+    d: path("M 210 50 H 210.5");
+  }
+
+  79% {
+    opacity: 0;
+    d: path("M 210 50 H 210.5");
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes processDesignTopLineBottomReverse {
+  0% {
+    opacity: 1;
+    d: path("M 210 150 H 466.5");
+  }
+
+  61% {
+    d: path("M 210 150 H 466.5");
+  }
+
+  78% {
+    opacity: 1;
+    d: path("M 210 150 H 210.5");
+  }
+
+  79% {
+    opacity: 0;
+    d: path("M 210 150 H 210.5");
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes processDesignTopLineCenterReverse {
+  0% {
+    opacity: 1;
+    d: path("M 210 100 H 313");
+  }
+
+  61% {
+    d: path("M 210 100 H 313");
+  }
+
+  78% {
+    opacity: 1;
+    d: path("M 210 100 H 210.5");
+  }
+
+  79% {
+    opacity: 0;
+    d: path("M 210 100 H 210.5");
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes processDesignCenterLineTopReverse {
+  0% {
+    opacity: 1;
+    d: path("M 387 292 H 580");
+  }
+
+  50% {
+    d: path("M 387 292 H 580");
+  }
+
+  76% {
+    opacity: 1;
+    d: path("M 580 292 H 580");
+  }
+
+  77% {
+    opacity: 0;
+    d: path("M 580 292 H 580");
+  }
+
+  100% {
+    opacity: 0;
+  }
+
+}
+
+@keyframes processDesignCenterLineCenterReverse {
+  0% {
+    opacity: 1;
+    d: path("M 317 342 L 580 342");
+  }
+
+  50% {
+    d: path("M 317 342 L 580 342");
+  }
+
+  76% {
+    opacity: 1;
+    d: path("M 580 342 L 580 342");
+  }
+
+  77% {
+    opacity: 0;
+    d: path("M 580 342 L 580 342");
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes processDesignCenterLineBottomReverse {
+  0% {
+    opacity: 1;
+    d: path("M 323 392 H 580");
+  }
+
+  50% {
+    d: path("M 323 392 H 580");
+  }
+
+  76% {
+    opacity: 1;
+    d: path("M 580 392 H 580");
+  }
+
+  77% {
+    opacity: 0;
+    d: path("M 580 392 H 580");
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes processDesignBottomLineTopReverse {
+  0% {
+    opacity: 1;
+    d: path("M 252 542 H 509");
+  }
+
+  32% {
+    d: path("M 252 542 H 509");
+  }
+
+  48% {
+    opacity: 1;
+    d: path("M 252 542 H 253");
+  }
+
+  49% {
+    opacity: 0;
+    d: path("M 252 542 H 253");
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes processDesignBottomLineBottomReverse {
+  0% {
+    opacity: 1;
+    d: path("M 252 592 H 406");
+  }
+
+  32% {
+    opacity: 1;
+    d: path("M 252 592 H 406");
+  }
+
+  48% {
+    opacity: 1;
+    d: path("M 252 592 H 252");
+  }
+
+  49% {
+    opacity: 0;
+    d: path("M 252 592 H 252");
+  }
+
+  100% {
+    opacity: 0;
   }
 }

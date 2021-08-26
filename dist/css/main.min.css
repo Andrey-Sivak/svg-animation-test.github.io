@@ -635,7 +635,10 @@ input[type="number"] {
           animation-fill-mode: forwards;
   -webkit-animation-timing-function: ease-in-out;
           animation-timing-function: ease-in-out;
-  opacity: 0; }
+  opacity: 0;
+  -webkit-transition: all ease-in-out .3s;
+  -o-transition: all ease-in-out .3s;
+  transition: all ease-in-out .3s; }
   #process-svg #process-design-circles, #process-svg #process-design-top-rect, #process-svg #process-design-center-rect, #process-svg #process-design-bottom-rect, #process-svg #process-design-top-line-t, #process-svg #process-design-top-line-c, #process-svg #process-design-top-line-b, #process-svg #process-design-center-line-b, #process-svg #process-design-center-line-t, #process-svg #process-design-center-line-c, #process-svg #process-design-bottom-line-t, #process-svg #process-design-bottom-line-b {
     -webkit-animation-duration: 3.8s;
             animation-duration: 3.8s;
@@ -705,59 +708,47 @@ input[type="number"] {
     #process-svg #process-design.animate #process-design-bottom-rect {
       -webkit-animation-name: processDesignBottomRectOpacity;
               animation-name: processDesignBottomRectOpacity; }
+    #process-svg #process-design.animate.hide {
+      opacity: 0 !important; }
   #process-svg #process-design.unanimate {
-    -webkit-animation-name: processDesignOpacity;
-            animation-name: processDesignOpacity;
-    animation-direction: reverse; }
-    #process-svg #process-design.unanimate #process-design-circles,
-    #process-svg #process-design.unanimate #process-design-top-rect,
-    #process-svg #process-design.unanimate #process-design-center-rect,
-    #process-svg #process-design.unanimate #process-design-bottom-rect,
-    #process-svg #process-design.unanimate #process-design-top-line-t,
-    #process-svg #process-design.unanimate #process-design-top-line-c,
-    #process-svg #process-design.unanimate #process-design-top-line-b,
-    #process-svg #process-design.unanimate #process-design-center-line-b,
-    #process-svg #process-design.unanimate #process-design-center-line-t,
-    #process-svg #process-design.unanimate #process-design-center-line-c,
-    #process-svg #process-design.unanimate #process-design-bottom-line-t,
-    #process-svg #process-design.unanimate #process-design-bottom-line-b {
-      animation-direction: reverse; }
+    -webkit-animation-name: processDesignOpacityReverse;
+            animation-name: processDesignOpacityReverse; }
     #process-svg #process-design.unanimate #process-design-top-line-t {
-      -webkit-animation-name: processDesignTopLineTop;
-              animation-name: processDesignTopLineTop; }
+      -webkit-animation-name: processDesignTopLineTopReverse;
+              animation-name: processDesignTopLineTopReverse; }
     #process-svg #process-design.unanimate #process-design-top-line-c {
-      -webkit-animation-name: processDesignTopLineCenter;
-              animation-name: processDesignTopLineCenter; }
+      -webkit-animation-name: processDesignTopLineCenterReverse;
+              animation-name: processDesignTopLineCenterReverse; }
     #process-svg #process-design.unanimate #process-design-top-line-b {
-      -webkit-animation-name: processDesignTopLineBottom;
-              animation-name: processDesignTopLineBottom; }
+      -webkit-animation-name: processDesignTopLineBottomReverse;
+              animation-name: processDesignTopLineBottomReverse; }
     #process-svg #process-design.unanimate #process-design-center-line-t {
-      -webkit-animation-name: processDesignCenterLineTop;
-              animation-name: processDesignCenterLineTop; }
+      -webkit-animation-name: processDesignCenterLineTopReverse;
+              animation-name: processDesignCenterLineTopReverse; }
     #process-svg #process-design.unanimate #process-design-center-line-c {
-      -webkit-animation-name: processDesignCenterLineCenter;
-              animation-name: processDesignCenterLineCenter; }
+      -webkit-animation-name: processDesignCenterLineCenterReverse;
+              animation-name: processDesignCenterLineCenterReverse; }
     #process-svg #process-design.unanimate #process-design-center-line-b {
-      -webkit-animation-name: processDesignCenterLineBottom;
-              animation-name: processDesignCenterLineBottom; }
+      -webkit-animation-name: processDesignCenterLineBottomReverse;
+              animation-name: processDesignCenterLineBottomReverse; }
     #process-svg #process-design.unanimate #process-design-bottom-line-t {
-      -webkit-animation-name: processDesignBottomLineTop;
-              animation-name: processDesignBottomLineTop; }
+      -webkit-animation-name: processDesignBottomLineTopReverse;
+              animation-name: processDesignBottomLineTopReverse; }
     #process-svg #process-design.unanimate #process-design-bottom-line-b {
-      -webkit-animation-name: processDesignBottomLineBottom;
-              animation-name: processDesignBottomLineBottom; }
+      -webkit-animation-name: processDesignBottomLineBottomReverse;
+              animation-name: processDesignBottomLineBottomReverse; }
     #process-svg #process-design.unanimate #process-design-circles {
-      -webkit-animation-name: processDesignCirclesOpacity;
-              animation-name: processDesignCirclesOpacity; }
+      -webkit-animation-name: processDesignCirclesOpacityReverse;
+              animation-name: processDesignCirclesOpacityReverse; }
     #process-svg #process-design.unanimate #process-design-top-rect {
-      -webkit-animation-name: processDesignTopRectOpacity;
-              animation-name: processDesignTopRectOpacity; }
+      -webkit-animation-name: processDesignTopRectOpacityReverse;
+              animation-name: processDesignTopRectOpacityReverse; }
     #process-svg #process-design.unanimate #process-design-center-rect {
-      -webkit-animation-name: processDesignCenterRectOpacity;
-              animation-name: processDesignCenterRectOpacity; }
+      -webkit-animation-name: processDesignCenterRectOpacityReverse;
+              animation-name: processDesignCenterRectOpacityReverse; }
     #process-svg #process-design.unanimate #process-design-bottom-rect {
-      -webkit-animation-name: processDesignBottomRectOpacity;
-              animation-name: processDesignBottomRectOpacity; }
+      -webkit-animation-name: processDesignBottomRectOpacityReverse;
+              animation-name: processDesignBottomRectOpacityReverse; }
 
 @-webkit-keyframes processDesignCirclesOpacity {
   0% {
@@ -1093,6 +1084,340 @@ input[type="number"] {
     opacity: 1;
     d: path("M 252 592 H 406"); } }
 
+@-webkit-keyframes processDesignCirclesOpacityReverse {
+  0% {
+    opacity: 1; }
+  93% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+@keyframes processDesignCirclesOpacityReverse {
+  0% {
+    opacity: 1; }
+  93% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+@-webkit-keyframes processDesignTopRectOpacityReverse {
+  0% {
+    opacity: 1; }
+  83% {
+    opacity: 1; }
+  89% {
+    opacity: 0; }
+  100% {
+    opacity: 0; } }
+
+@keyframes processDesignTopRectOpacityReverse {
+  0% {
+    opacity: 1; }
+  83% {
+    opacity: 1; }
+  89% {
+    opacity: 0; }
+  100% {
+    opacity: 0; } }
+
+@-webkit-keyframes processDesignCenterRectOpacityReverse {
+  0% {
+    opacity: 1; }
+  62% {
+    opacity: 1; }
+  68% {
+    opacity: 0; }
+  100% {
+    opacity: 0; } }
+
+@keyframes processDesignCenterRectOpacityReverse {
+  0% {
+    opacity: 1; }
+  62% {
+    opacity: 1; }
+  68% {
+    opacity: 0; }
+  100% {
+    opacity: 0; } }
+
+@-webkit-keyframes processDesignBottomRectOpacityReverse {
+  0% {
+    opacity: 1; }
+  41% {
+    opacity: 1; }
+  48% {
+    opacity: 0; }
+  100% {
+    opacity: 0; } }
+
+@keyframes processDesignBottomRectOpacityReverse {
+  0% {
+    opacity: 1; }
+  41% {
+    opacity: 1; }
+  48% {
+    opacity: 0; }
+  100% {
+    opacity: 0; } }
+
+@-webkit-keyframes processDesignOpacityReverse {
+  0% {
+    opacity: 1; }
+  92% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+@keyframes processDesignOpacityReverse {
+  0% {
+    opacity: 1; }
+  92% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+@-webkit-keyframes processDesignTopLineTopReverse {
+  0% {
+    opacity: 1;
+    d: path("M 210 50 H 466.5"); }
+  61% {
+    d: path("M 210 50 H 466.5"); }
+  78% {
+    opacity: 1;
+    d: path("M 210 50 H 210.5"); }
+  79% {
+    opacity: 0;
+    d: path("M 210 50 H 210.5"); }
+  100% {
+    opacity: 0; } }
+
+@keyframes processDesignTopLineTopReverse {
+  0% {
+    opacity: 1;
+    d: path("M 210 50 H 466.5"); }
+  61% {
+    d: path("M 210 50 H 466.5"); }
+  78% {
+    opacity: 1;
+    d: path("M 210 50 H 210.5"); }
+  79% {
+    opacity: 0;
+    d: path("M 210 50 H 210.5"); }
+  100% {
+    opacity: 0; } }
+
+@-webkit-keyframes processDesignTopLineBottomReverse {
+  0% {
+    opacity: 1;
+    d: path("M 210 150 H 466.5"); }
+  61% {
+    d: path("M 210 150 H 466.5"); }
+  78% {
+    opacity: 1;
+    d: path("M 210 150 H 210.5"); }
+  79% {
+    opacity: 0;
+    d: path("M 210 150 H 210.5"); }
+  100% {
+    opacity: 0; } }
+
+@keyframes processDesignTopLineBottomReverse {
+  0% {
+    opacity: 1;
+    d: path("M 210 150 H 466.5"); }
+  61% {
+    d: path("M 210 150 H 466.5"); }
+  78% {
+    opacity: 1;
+    d: path("M 210 150 H 210.5"); }
+  79% {
+    opacity: 0;
+    d: path("M 210 150 H 210.5"); }
+  100% {
+    opacity: 0; } }
+
+@-webkit-keyframes processDesignTopLineCenterReverse {
+  0% {
+    opacity: 1;
+    d: path("M 210 100 H 313"); }
+  61% {
+    d: path("M 210 100 H 313"); }
+  78% {
+    opacity: 1;
+    d: path("M 210 100 H 210.5"); }
+  79% {
+    opacity: 0;
+    d: path("M 210 100 H 210.5"); }
+  100% {
+    opacity: 0; } }
+
+@keyframes processDesignTopLineCenterReverse {
+  0% {
+    opacity: 1;
+    d: path("M 210 100 H 313"); }
+  61% {
+    d: path("M 210 100 H 313"); }
+  78% {
+    opacity: 1;
+    d: path("M 210 100 H 210.5"); }
+  79% {
+    opacity: 0;
+    d: path("M 210 100 H 210.5"); }
+  100% {
+    opacity: 0; } }
+
+@-webkit-keyframes processDesignCenterLineTopReverse {
+  0% {
+    opacity: 1;
+    d: path("M 387 292 H 580"); }
+  50% {
+    d: path("M 387 292 H 580"); }
+  76% {
+    opacity: 1;
+    d: path("M 580 292 H 580"); }
+  77% {
+    opacity: 0;
+    d: path("M 580 292 H 580"); }
+  100% {
+    opacity: 0; } }
+
+@keyframes processDesignCenterLineTopReverse {
+  0% {
+    opacity: 1;
+    d: path("M 387 292 H 580"); }
+  50% {
+    d: path("M 387 292 H 580"); }
+  76% {
+    opacity: 1;
+    d: path("M 580 292 H 580"); }
+  77% {
+    opacity: 0;
+    d: path("M 580 292 H 580"); }
+  100% {
+    opacity: 0; } }
+
+@-webkit-keyframes processDesignCenterLineCenterReverse {
+  0% {
+    opacity: 1;
+    d: path("M 317 342 L 580 342"); }
+  50% {
+    d: path("M 317 342 L 580 342"); }
+  76% {
+    opacity: 1;
+    d: path("M 580 342 L 580 342"); }
+  77% {
+    opacity: 0;
+    d: path("M 580 342 L 580 342"); }
+  100% {
+    opacity: 0; } }
+
+@keyframes processDesignCenterLineCenterReverse {
+  0% {
+    opacity: 1;
+    d: path("M 317 342 L 580 342"); }
+  50% {
+    d: path("M 317 342 L 580 342"); }
+  76% {
+    opacity: 1;
+    d: path("M 580 342 L 580 342"); }
+  77% {
+    opacity: 0;
+    d: path("M 580 342 L 580 342"); }
+  100% {
+    opacity: 0; } }
+
+@-webkit-keyframes processDesignCenterLineBottomReverse {
+  0% {
+    opacity: 1;
+    d: path("M 323 392 H 580"); }
+  50% {
+    d: path("M 323 392 H 580"); }
+  76% {
+    opacity: 1;
+    d: path("M 580 392 H 580"); }
+  77% {
+    opacity: 0;
+    d: path("M 580 392 H 580"); }
+  100% {
+    opacity: 0; } }
+
+@keyframes processDesignCenterLineBottomReverse {
+  0% {
+    opacity: 1;
+    d: path("M 323 392 H 580"); }
+  50% {
+    d: path("M 323 392 H 580"); }
+  76% {
+    opacity: 1;
+    d: path("M 580 392 H 580"); }
+  77% {
+    opacity: 0;
+    d: path("M 580 392 H 580"); }
+  100% {
+    opacity: 0; } }
+
+@-webkit-keyframes processDesignBottomLineTopReverse {
+  0% {
+    opacity: 1;
+    d: path("M 252 542 H 509"); }
+  32% {
+    d: path("M 252 542 H 509"); }
+  48% {
+    opacity: 1;
+    d: path("M 252 542 H 253"); }
+  49% {
+    opacity: 0;
+    d: path("M 252 542 H 253"); }
+  100% {
+    opacity: 0; } }
+
+@keyframes processDesignBottomLineTopReverse {
+  0% {
+    opacity: 1;
+    d: path("M 252 542 H 509"); }
+  32% {
+    d: path("M 252 542 H 509"); }
+  48% {
+    opacity: 1;
+    d: path("M 252 542 H 253"); }
+  49% {
+    opacity: 0;
+    d: path("M 252 542 H 253"); }
+  100% {
+    opacity: 0; } }
+
+@-webkit-keyframes processDesignBottomLineBottomReverse {
+  0% {
+    opacity: 1;
+    d: path("M 252 592 H 406"); }
+  32% {
+    opacity: 1;
+    d: path("M 252 592 H 406"); }
+  48% {
+    opacity: 1;
+    d: path("M 252 592 H 252"); }
+  49% {
+    opacity: 0;
+    d: path("M 252 592 H 252"); }
+  100% {
+    opacity: 0; } }
+
+@keyframes processDesignBottomLineBottomReverse {
+  0% {
+    opacity: 1;
+    d: path("M 252 592 H 406"); }
+  32% {
+    opacity: 1;
+    d: path("M 252 592 H 406"); }
+  48% {
+    opacity: 1;
+    d: path("M 252 592 H 252"); }
+  49% {
+    opacity: 0;
+    d: path("M 252 592 H 252"); }
+  100% {
+    opacity: 0; } }
+
 #process-svg #process-phone {
   -webkit-animation-duration: 2.4s;
           animation-duration: 2.4s;
@@ -1102,7 +1427,12 @@ input[type="number"] {
           animation-fill-mode: forwards;
   -webkit-animation-timing-function: ease-in-out;
           animation-timing-function: ease-in-out;
-  opacity: 0; }
+  opacity: 0;
+  -webkit-transition: all ease-in-out .3s;
+  -o-transition: all ease-in-out .3s;
+  transition: all ease-in-out .3s; }
+  #process-svg #process-phone.hide {
+    opacity: 0 !important; }
   #process-svg #process-phone-bg, #process-svg #process-phone-top-proto, #process-svg #process-phone-center-proto, #process-svg #process-phone-bottom-proto, #process-svg #process-phone-top-design, #process-svg #process-phone-center-design, #process-svg #process-phone-bottom-design,
   #process-svg #process-phone #process-test-brace1,
   #process-svg #process-phone #process-test-brace2,
@@ -1323,7 +1653,7 @@ input[type="number"] {
 
 @-webkit-keyframes topProtoHide {
   0% {
-    opacity: .8; }
+    opacity: 1; }
   47% {
     opacity: 1; }
   57% {
@@ -1333,7 +1663,7 @@ input[type="number"] {
 
 @keyframes topProtoHide {
   0% {
-    opacity: .8; }
+    opacity: 1; }
   47% {
     opacity: 1; }
   57% {
@@ -1363,7 +1693,7 @@ input[type="number"] {
 
 @-webkit-keyframes centerProtoHide {
   0% {
-    opacity: .8; }
+    opacity: 1; }
   74% {
     opacity: 1; }
   84% {
@@ -1373,7 +1703,7 @@ input[type="number"] {
 
 @keyframes centerProtoHide {
   0% {
-    opacity: .8; }
+    opacity: 1; }
   74% {
     opacity: 1; }
   84% {
@@ -2213,39 +2543,64 @@ input[type="number"] {
     stroke-width: 4;
     opacity: 1; } }
 
-#process-svg #process-marketing, #process-svg #process-marketing-earth, #process-svg #process-marketing-cloud,
-#process-svg #process-marketing .process-marketing-earth-circle,
-#process-svg #process-marketing .process-marketing-earth-icon {
-  -webkit-animation-duration: 2s;
-          animation-duration: 2s;
-  -webkit-animation-iteration-count: 1;
-          animation-iteration-count: 1;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-  -webkit-animation-timing-function: ease-in-out;
-          animation-timing-function: ease-in-out;
-  opacity: 0; }
-
-#process-svg #process-marketing.animate {
-  -webkit-animation-name: processMarketingOpacity;
-          animation-name: processMarketingOpacity;
-  -webkit-animation-direction: alternate;
-          animation-direction: alternate; }
-  #process-svg #process-marketing.animate #process-marketing-earth {
-    -webkit-animation-name: processMarketingEarthOpacity;
-            animation-name: processMarketingEarthOpacity; }
-  #process-svg #process-marketing.animate #process-marketing-cloud {
-    -webkit-animation-name: processMarketingCloudOpacity;
-            animation-name: processMarketingCloudOpacity; }
-  #process-svg #process-marketing.animate .process-marketing-earth-circle {
-    -webkit-transform-origin: center;
-        -ms-transform-origin: center;
-            transform-origin: center;
-    -webkit-animation-name: processMarketingCirclesOpacity;
-            animation-name: processMarketingCirclesOpacity; }
-  #process-svg #process-marketing.animate .process-marketing-earth-icon {
-    -webkit-animation-name: processMarketingIconsOpacity;
-            animation-name: processMarketingIconsOpacity; }
+#process-svg #process-marketing {
+  -webkit-transition: all ease-in-out .3s;
+  -o-transition: all ease-in-out .3s;
+  transition: all ease-in-out .3s; }
+  #process-svg #process-marketing, #process-svg #process-marketing-earth, #process-svg #process-marketing-cloud,
+  #process-svg #process-marketing .process-marketing-earth-circle,
+  #process-svg #process-marketing .process-marketing-earth-icon {
+    -webkit-animation-duration: 2s;
+            animation-duration: 2s;
+    -webkit-animation-iteration-count: 1;
+            animation-iteration-count: 1;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+    -webkit-animation-timing-function: ease-in-out;
+            animation-timing-function: ease-in-out;
+    opacity: 0; }
+  #process-svg #process-marketing.animate {
+    -webkit-animation-name: processMarketingOpacity;
+            animation-name: processMarketingOpacity;
+    -webkit-animation-direction: alternate;
+            animation-direction: alternate; }
+    #process-svg #process-marketing.animate #process-marketing-earth {
+      -webkit-animation-name: processMarketingEarthOpacity;
+              animation-name: processMarketingEarthOpacity; }
+    #process-svg #process-marketing.animate #process-marketing-cloud {
+      -webkit-animation-name: processMarketingCloudOpacity;
+              animation-name: processMarketingCloudOpacity; }
+    #process-svg #process-marketing.animate .process-marketing-earth-circle {
+      -webkit-transform-origin: center;
+          -ms-transform-origin: center;
+              transform-origin: center;
+      -webkit-animation-name: processMarketingCirclesOpacity;
+              animation-name: processMarketingCirclesOpacity; }
+    #process-svg #process-marketing.animate .process-marketing-earth-icon {
+      -webkit-animation-name: processMarketingIconsOpacity;
+              animation-name: processMarketingIconsOpacity; }
+  #process-svg #process-marketing.hide {
+    opacity: 0 !important; }
+  #process-svg #process-marketing.unanimate {
+    -webkit-animation-name: processMarketingOpacityReverse;
+            animation-name: processMarketingOpacityReverse;
+    -webkit-animation-direction: alternate;
+            animation-direction: alternate; }
+    #process-svg #process-marketing.unanimate #process-marketing-earth {
+      -webkit-animation-name: processMarketingEarthOpacityReverse;
+              animation-name: processMarketingEarthOpacityReverse; }
+    #process-svg #process-marketing.unanimate #process-marketing-cloud {
+      -webkit-animation-name: processMarketingCloudOpacityReverse;
+              animation-name: processMarketingCloudOpacityReverse; }
+    #process-svg #process-marketing.unanimate .process-marketing-earth-circle {
+      -webkit-transform-origin: center;
+          -ms-transform-origin: center;
+              transform-origin: center;
+      -webkit-animation-name: processMarketingCirclesOpacityReverse;
+              animation-name: processMarketingCirclesOpacityReverse; }
+    #process-svg #process-marketing.unanimate .process-marketing-earth-icon {
+      -webkit-animation-name: processMarketingIconsOpacityReverse;
+              animation-name: processMarketingIconsOpacityReverse; }
 
 @-webkit-keyframes processMarketingOpacity {
   0% {
@@ -2351,28 +2706,146 @@ input[type="number"] {
   100% {
     opacity: 1; } }
 
-#process-svg #process-launch, #process-svg #process-launch-circle, #process-svg #process-launch-circles, #process-svg #process-launch-check {
-  -webkit-animation-duration: 1.3s;
-          animation-duration: 1.3s;
-  -webkit-animation-iteration-count: 1;
-          animation-iteration-count: 1;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-  -webkit-animation-timing-function: ease-in-out;
-          animation-timing-function: ease-in-out;
-  opacity: 0; }
+@-webkit-keyframes processMarketingOpacityReverse {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
 
-#process-svg #process-launch.animate {
-  opacity: 1; }
-  #process-svg #process-launch.animate #process-launch-circles {
-    -webkit-animation-name: processLaunchCirclesOpacity;
-            animation-name: processLaunchCirclesOpacity; }
-  #process-svg #process-launch.animate #process-launch-circle {
-    -webkit-animation-name: processLaunchCircleOpacity;
-            animation-name: processLaunchCircleOpacity; }
-  #process-svg #process-launch.animate #process-launch-check {
-    -webkit-animation-name: processLaunchCheck;
-            animation-name: processLaunchCheck; }
+@keyframes processMarketingOpacityReverse {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+@-webkit-keyframes processMarketingEarthOpacityReverse {
+  0% {
+    opacity: 1; }
+  66% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+@keyframes processMarketingEarthOpacityReverse {
+  0% {
+    opacity: 1; }
+  66% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+@-webkit-keyframes processMarketingCloudOpacityReverse {
+  0% {
+    opacity: 1; }
+  64% {
+    opacity: 1; }
+  86% {
+    opacity: 0; }
+  100% {
+    opacity: 0; } }
+
+@keyframes processMarketingCloudOpacityReverse {
+  0% {
+    opacity: 1; }
+  64% {
+    opacity: 1; }
+  86% {
+    opacity: 0; }
+  100% {
+    opacity: 0; } }
+
+@-webkit-keyframes processMarketingCirclesOpacityReverse {
+  0% {
+    opacity: .2;
+    -webkit-transform: scale(1);
+            transform: scale(1); }
+  25% {
+    opacity: .2;
+    -webkit-transform: scale(1);
+            transform: scale(1); }
+  50% {
+    opacity: 0;
+    -webkit-transform: scale(0);
+            transform: scale(0); }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(0);
+            transform: scale(0); } }
+
+@keyframes processMarketingCirclesOpacityReverse {
+  0% {
+    opacity: .2;
+    -webkit-transform: scale(1);
+            transform: scale(1); }
+  25% {
+    opacity: .2;
+    -webkit-transform: scale(1);
+            transform: scale(1); }
+  50% {
+    opacity: 0;
+    -webkit-transform: scale(0);
+            transform: scale(0); }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(0);
+            transform: scale(0); } }
+
+@-webkit-keyframes processMarketingIconsOpacityReverse {
+  0% {
+    opacity: 1; }
+  15% {
+    opacity: 1; }
+  30% {
+    opacity: 0; }
+  100% {
+    opacity: 0; } }
+
+@keyframes processMarketingIconsOpacityReverse {
+  0% {
+    opacity: 1; }
+  15% {
+    opacity: 1; }
+  30% {
+    opacity: 0; }
+  100% {
+    opacity: 0; } }
+
+#process-svg #process-launch {
+  -webkit-transition: all ease-in-out .3s;
+  -o-transition: all ease-in-out .3s;
+  transition: all ease-in-out .3s; }
+  #process-svg #process-launch, #process-svg #process-launch-circle, #process-svg #process-launch-circles, #process-svg #process-launch-check {
+    -webkit-animation-duration: 1.3s;
+            animation-duration: 1.3s;
+    -webkit-animation-iteration-count: 1;
+            animation-iteration-count: 1;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+    -webkit-animation-timing-function: ease-in-out;
+            animation-timing-function: ease-in-out;
+    opacity: 0; }
+  #process-svg #process-launch.animate {
+    opacity: 1; }
+    #process-svg #process-launch.animate #process-launch-circles {
+      -webkit-animation-name: processLaunchCirclesOpacity;
+              animation-name: processLaunchCirclesOpacity; }
+    #process-svg #process-launch.animate #process-launch-circle {
+      -webkit-animation-name: processLaunchCircleOpacity;
+              animation-name: processLaunchCircleOpacity; }
+    #process-svg #process-launch.animate #process-launch-check {
+      -webkit-animation-name: processLaunchCheck;
+              animation-name: processLaunchCheck; }
+  #process-svg #process-launch.unanimate {
+    opacity: 1; }
+    #process-svg #process-launch.unanimate #process-launch-circles {
+      -webkit-animation-name: processLaunchCirclesOpacityReverse;
+              animation-name: processLaunchCirclesOpacityReverse; }
+    #process-svg #process-launch.unanimate #process-launch-circle {
+      -webkit-animation-name: processLaunchCircleOpacityReverse;
+              animation-name: processLaunchCircleOpacityReverse; }
+    #process-svg #process-launch.unanimate #process-launch-check {
+      -webkit-animation-name: processLaunchCheckReverse;
+              animation-name: processLaunchCheckReverse; }
 
 @-webkit-keyframes processLaunchCircleOpacity {
   0% {
@@ -2443,6 +2916,76 @@ input[type="number"] {
     opacity: 1;
     stroke-width: 27;
     d: path("M 288 314.5 L 380.5 416.5 L 508.5 236"); } }
+
+@-webkit-keyframes processLaunchCircleOpacityReverse {
+  0% {
+    opacity: 1; }
+  62.5% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+@keyframes processLaunchCircleOpacityReverse {
+  0% {
+    opacity: 1; }
+  62.5% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+@-webkit-keyframes processLaunchCirclesOpacityReverse {
+  0% {
+    opacity: 1; }
+  44% {
+    opacity: 1; }
+  60% {
+    opacity: 0; }
+  100% {
+    opacity: 0; } }
+
+@keyframes processLaunchCirclesOpacityReverse {
+  0% {
+    opacity: 1; }
+  44% {
+    opacity: 1; }
+  60% {
+    opacity: 0; }
+  100% {
+    opacity: 0; } }
+
+@-webkit-keyframes processLaunchCheckReverse {
+  0% {
+    opacity: 1;
+    stroke-width: 27;
+    d: path("M 288 314.5 L 380.5 416.5 L 508.5 236"); }
+  25% {
+    d: path("M 288 314.5 L 380.5 416.5 L 380.5 416.5"); }
+  41% {
+    opacity: 1;
+    stroke-width: 27;
+    d: path("M 288 314.5 L 288 314.5 L 288 314.5"); }
+  42% {
+    stroke-width: 0; }
+  100% {
+    stroke-width: 0;
+    d: path("M 288 314.5 L 288 314.5 L 288 314.5"); } }
+
+@keyframes processLaunchCheckReverse {
+  0% {
+    opacity: 1;
+    stroke-width: 27;
+    d: path("M 288 314.5 L 380.5 416.5 L 508.5 236"); }
+  25% {
+    d: path("M 288 314.5 L 380.5 416.5 L 380.5 416.5"); }
+  41% {
+    opacity: 1;
+    stroke-width: 27;
+    d: path("M 288 314.5 L 288 314.5 L 288 314.5"); }
+  42% {
+    stroke-width: 0; }
+  100% {
+    stroke-width: 0;
+    d: path("M 288 314.5 L 288 314.5 L 288 314.5"); } }
 
 .bg-circle {
   border: 2px dashed rgba(255, 255, 255, 0.2);

@@ -1,6 +1,7 @@
 $duration: 2s;
 
 #process-marketing {
+  @include transition-ease;
 
   &,
   &-earth,
@@ -33,6 +34,32 @@ $duration: 2s;
 
     .process-marketing-earth-icon {
       animation-name: processMarketingIconsOpacity;
+    }
+  }
+
+  &.hide {
+    opacity: 0!important;
+  }
+
+  &.unanimate {
+    animation-name: processMarketingOpacityReverse;
+    animation-direction: alternate;
+
+    #process-marketing-earth {
+      animation-name: processMarketingEarthOpacityReverse;
+    }
+
+    #process-marketing-cloud {
+      animation-name: processMarketingCloudOpacityReverse;
+    }
+
+    .process-marketing-earth-circle {
+      transform-origin: center;
+      animation-name: processMarketingCirclesOpacityReverse;
+    }
+
+    .process-marketing-earth-icon {
+      animation-name: processMarketingIconsOpacityReverse;
     }
   }
 }
@@ -117,5 +144,89 @@ $duration: 2s;
 
   100% {
     opacity: 1;
+  }
+}
+
+
+@keyframes processMarketingOpacityReverse {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes processMarketingEarthOpacityReverse {
+  0% {
+    opacity: 1;
+  }
+
+  66% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes processMarketingCloudOpacityReverse {
+  0% {
+    opacity: 1;
+  }
+
+  64% {
+    opacity: 1;
+  }
+
+  86% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+
+}
+
+@keyframes processMarketingCirclesOpacityReverse {
+  0% {
+    opacity: .2;
+    transform: scale(1);
+  }
+
+  25% {
+    opacity: .2;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+
+@keyframes processMarketingIconsOpacityReverse {
+  0% {
+    opacity: 1;
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  30% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
   }
 }

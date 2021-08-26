@@ -6,6 +6,11 @@ $duration: 2.4s;
   animation-fill-mode: forwards;
   animation-timing-function: ease-in-out;
   opacity: 0;
+  @include transition-ease;
+
+  &.hide {
+    opacity: 0!important;
+  }
 
   &-bg,
   &-top-proto,
@@ -276,7 +281,7 @@ $duration: 2.4s;
 
 @keyframes topProtoHide {
   0% {
-    opacity: .8;
+    opacity: 1;
   }
 
   47% {
@@ -312,7 +317,7 @@ $duration: 2.4s;
 
 @keyframes centerProtoHide {
   0% {
-    opacity: .8;
+    opacity: 1;
   }
 
   74% {

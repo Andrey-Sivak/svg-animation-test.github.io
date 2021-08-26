@@ -169,32 +169,32 @@ window.addEventListener('load', function () {
             {
                 textElement: processTextItems[0],
                 svgTargetElement: svg.querySelector('#process-design'),
-                animationDuration: 3500,
+                animationDuration: 3400,
             },
             {
                 textElement: processTextItems[1],
                 svgTargetElement: svg.querySelector('#process-phone'),
-                animationDuration: 2400,
+                animationDuration: 2000,
             },
             {
                 textElement: processTextItems[2],
                 svgTargetElement: svg.querySelector('#process-phone'),
-                animationDuration: 2400,
+                animationDuration: 2200,
             },
             {
                 textElement: processTextItems[3],
                 svgTargetElement: svg.querySelector('#process-phone'),
-                animationDuration: 1000,
+                animationDuration: 700,
             },
             {
                 textElement: processTextItems[4],
                 svgTargetElement: svg.querySelector('#process-marketing'),
-                animationDuration: 2000,
+                animationDuration: 1600,
             },
             {
                 textElement: processTextItems[5],
                 svgTargetElement: svg.querySelector('#process-launch'),
-                animationDuration: 1300,
+                animationDuration: 1000,
             },
         ];
 
@@ -230,10 +230,19 @@ window.addEventListener('load', function () {
             const svg = options[i].svgTargetElement;
 
             if (direction === 'up') {
-                // svg.classList.add('unanimate');
+                if (svg.classList.contains('hide')) {
+                    svg.classList.remove('hide');
+                }
+
+                svg.classList.add('unanimate');
+
+
+                console.log(i === 3 || i === 4);
             } else {
+                svg.classList.add('animate');
+
                 if (i === 1 || i === 4 || i === 5) {
-                    options[i - 1].svgTargetElement.classList = [];
+                    options[i - 1].svgTargetElement.classList.add('hide');
                 }
 
                 if (i === 2) {
@@ -245,7 +254,6 @@ window.addEventListener('load', function () {
                 }
 
                 elem.classList.add('show');
-                svg.classList.add('animate');
             }
 
             document.body.classList.add('no-scrolling');
@@ -261,6 +269,29 @@ window.addEventListener('load', function () {
                         elem.nextElementSibling.classList.remove('show');
                     } else {
                         elem.classList.remove('show');
+                    }
+
+
+                    if (i === 1 || i === 5) {
+                        svg.previousElementSibling.classList.remove('hide');
+                        svg.classList = [];
+                    }
+
+                    if (i === 4) {
+                        svg.previousElementSibling.classList.remove( 'hide');
+                        svg.classList = [];
+                    }
+
+                    if (i === 3) {
+                        svg.classList.remove('animate3');
+                    }
+
+                    if (i === 2) {
+                        svg.classList.remove('animate2');
+                    }
+
+                    if (i === 0) {
+                        svg.classList = [];
                     }
                 }
 
@@ -531,16 +562,6 @@ function cloneInput(input) {
     newInput.addEventListener('change', handleFileInput);
 
     return newInput;
-}
-
-function getCoords(elem) {
-    const box = elem.getBoundingClientRect();
-
-    return {
-        top: box.top + pageYOffset,
-        left: box.left + pageXOffset
-    };
-
 }
 
 function getArctctg(x, y) {
