@@ -5,6 +5,20 @@
   justify-content: space-between;
   max-width: 1362px;
 
+  @include response-to(huge) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  @include response-to(large) {
+    flex-wrap: wrap;
+  }
+
+  @include response-to(small) {
+    height: auto;
+    padding-bottom: 70px;
+  }
+
   &__circle-bg {
     right: calc((100vw - 1362px + 432px) / -2);
     width: 1349px;
@@ -12,19 +26,52 @@
     border-radius: 50%;
     background: linear-gradient(360deg, rgba(21, 20, 21, 0.19) 21.9%, #1F1F1F 46.33%, #181818 75.93%, rgba(19, 19, 19, 0) 85.55%);
     z-index: -1;
+
+    @include response-to(huge) {
+      width: 85vw;
+      height: 85vw;
+    }
+
+    @include response-to(small) {
+      width: 850px;
+      height: 850px;
+      bottom: 0;
+      top: unset;
+      left: 50%;
+      transform: translateX(-50%) rotate(130deg);
+    }
   }
 
   &__block {
     flex: 0 0 50%;
 
+    @include response-to(large) {
+      flex: 0 0 100%;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
     &:last-of-type {
       max-width: 650px;
+
+      @include response-to(small) {
+        width: 100%;
+      }
     }
 
     & .section-caption {
       margin-bottom: 6px;
       font-size: 52px;
       line-height: 118px;
+
+      @include response-to(large) {
+        font-size: 40px;
+      }
+
+      @include response-to(small) {
+        margin-bottom: 22px;
+      }
     }
 
     &_email {
@@ -36,6 +83,17 @@
       font-size: 30px;
       line-height: 31px;
       margin-bottom: 35px;
+
+      @include response-to(large) {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      @include response-to(small) {
+        font-size: 19px;
+        line-height: 19px;
+        margin-bottom: 20px;
+      }
     }
 
     &_text {
@@ -43,6 +101,18 @@
       font-weight: 300;
       font-size: 14px;
       line-height: 24px;
+
+      @include response-to(large) {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      @include response-to(small) {
+        font-size: 11px;
+        line-height: 174.7%;
+        max-width: 238px;
+        margin-bottom: 76px;
+      }
     }
   }
 }

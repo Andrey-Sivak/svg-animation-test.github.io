@@ -3,9 +3,47 @@
   margin-top: 223px;
   margin-bottom: 463px;
 
+  @include response-to(huge) {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 350px;
+  }
+
+  @include response-to(large) {
+    margin-top: 75px;
+    margin-bottom: 0;
+  }
+
+  @include response-to(small) {
+    margin-top: 44px;
+  }
+
+  &__content {
+
+    @include response-to(small) {
+      margin-bottom: 66px;
+    }
+  }
+
   &__caption {
     font-weight: bold;
     font-size: 48px;
+
+    @include response-to(huge) {
+      font-size: 44px;
+    }
+
+    @include response-to(large) {
+      text-align: center;
+    }
+
+    &_top {
+
+      @include response-to(small) {
+        font-size: 24px;
+        line-height: 23px;
+      }
+    }
 
     &_bottom {
       width: fit-content;
@@ -14,6 +52,18 @@
       -webkit-text-fill-color: transparent;
       margin-top: 15px;
       margin-bottom: 30px;
+
+      @include response-to(large) {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      @include response-to(small) {
+        font-size: 32px;
+        line-height: 119.2%;
+        margin-top: 20px;
+        margin-bottom: 26px;
+      }
     }
   }
 
@@ -22,6 +72,15 @@
     font-weight: 300;
     font-size: 14px;
     line-height: 24px;
+
+    @include response-to(large) {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @include response-to(small) {
+      display: none;
+    }
   }
 
   &__btn {
@@ -36,6 +95,11 @@
 
     &_wrap {
       width: fit-content;
+
+      @include response-to(large) {
+        margin-left: auto;
+        margin-right: auto;
+      }
 
       & .hov {
         width: 700px;
@@ -95,6 +159,17 @@
     right: -34px;
     top: 50%;
     transform: translateY(-50%);
+
+    @include response-to(huge) {
+      right: 20px;
+    }
+
+    @include response-to(large) {
+      position: relative;
+      top: unset;
+      right: unset;
+      transform: unset;
+    }
 
     @import "../animations/first-section";
   }

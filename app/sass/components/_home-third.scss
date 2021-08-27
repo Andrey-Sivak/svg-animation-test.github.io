@@ -5,11 +5,46 @@
   display: flex;
   align-items: flex-start;
 
+  @include response-to(huge) {
+    padding-top: 80px;
+    height: 775px;
+    padding-left: 20px;
+  }
+
+  @include response-to(small) {
+    flex-wrap: wrap;
+    height: auto;
+    margin-bottom: 130px;
+  }
+
   &__block {
     flex: 0 0 50%;
 
     &:last-of-type {
       padding-left: 58px;
+
+      @include response-to(small) {
+        padding-left: 0;
+      }
+    }
+
+    @include response-to(small) {
+      flex: 0 0 100%;
+    }
+
+    &.interactive {
+
+      @include response-to(small) {
+        order: 2;
+
+        #process-svg {
+          position: relative;
+          width: 90vw;
+          max-width: 400px;
+          height: auto;
+          left: unset;
+        }
+      }
     }
   }
 
@@ -22,8 +57,19 @@
     @include transition-ease;
     opacity: 0;
 
+    @include response-to(small) {
+      display: none;
+    }
+
     &.show {
       opacity: 1;
+
+      @include response-to(small) {
+
+        &:last-of-type {
+          display: block;
+        }
+      }
     }
 
     &_caption {

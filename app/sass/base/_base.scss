@@ -46,6 +46,11 @@
   font-size: 48px;
   line-height: 118px;
   font-weight: bold;
+
+  @include response-to(small) {
+    font-size: 24px!important;
+    line-height: 29px!important;
+  }
 }
 
 .absolute-center {

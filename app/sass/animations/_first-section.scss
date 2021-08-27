@@ -1,5 +1,19 @@
 #first-section-svg {
 
+  @include response-to(huge) {
+    width: 630px;
+  }
+
+  @include response-to(large) {
+    display: block;
+    margin: 0 auto;
+  }
+
+  @include response-to(small) {
+    width: 90vw;
+    height: auto;
+  }
+
   #dis {
     transform: translateX(calc(100% - 460px));
 

@@ -8,12 +8,34 @@
     top: -475px;
     right: -142px;
     @include flex-center();
+
+    @include response-to(huge) {
+      width: 100vw;
+      height: 100vw;
+      top: -7%;
+      right: -20%;
+    }
+
+    @include response-to(small) {
+      width: 565px;
+      height: 565px;
+      right: unset;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 134px;
+      border: 2px dashed rgba(#fff, .1);
+    }
   }
 
   &-sub_circle {
     border: inherit;
     width: calc(100% - 150px);
     height: calc(100% - 150px);
+
+    @include response-to(small) {
+      width: calc(100% - 58px);
+      height: calc(100% - 58px);
+    }
   }
 }
 

@@ -1,6 +1,7 @@
 'use strict';
 import * as $ from 'jquery';
 import './jquery.validate.min';
+import './slick.min';
 
 const mobileWidth = 767;
 let isMobile = checkWidth();
@@ -25,6 +26,29 @@ setTimeout(() => {
 }, 2500);
 
 window.addEventListener('load', function () {
+
+    (function mobMenu() {
+        if (!document.querySelector('.mob-menu-btn')) {
+            return;
+        }
+
+        const btn = document.querySelector('.mob-menu-btn');
+        const menu = document.querySelector('.menu');
+        const langs = document.querySelector('.header__langs');
+
+        btn.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            this.classList.toggle('active');
+            menu.classList.toggle('active');
+            langs.classList.toggle('active');
+            document.body.classList.toggle('no-scrolling');
+        });
+
+        if (btn.classList.contains('hide')) {
+            btn.classList.remove('hide');
+        }
+    })();
 
     (function loader() {
         if (!document.querySelector('.loader')) {
@@ -407,7 +431,7 @@ window.addEventListener('load', function () {
     })();
     
     (function servicesAnimation() {
-        if (!document.querySelector('.second-section__item')) {
+        if (!document.querySelector('.second-section__item') || isMobile) {
             return;
         }
 
@@ -449,6 +473,49 @@ window.addEventListener('load', function () {
 
                 shine.style.transform = `rotate(${57.2958 * getArctctg(x, y)}deg) translateX(110px)`;
             })
+        }
+    })();
+
+    (function servicesSlider() {
+        if (!document.querySelector('.second-section__items')) {
+            return;
+        }
+
+        const sliderSelector = '.second-section__items';
+
+        if (document.body.offsetWidth < 800) {
+            isMobile = true;
+            initSlider(sliderSelector);
+        }
+
+        window.addEventListener('resize', function (e) {
+            if (isMobile) {
+                initSlider(sliderSelector);
+            } else {
+                destroySlider(sliderSelector);
+            }
+        });
+
+        function initSlider(slider) {
+            $(slider).slick({
+                infinite: true,
+                slidesToShow: 1,
+                swipeToSlide: true,
+                prevArrow: '',
+                nextArrow: '',
+                responsive: [
+                    {
+                        /*breakpoint: 475,
+                        settings: {
+                            slidesToShow: 4,
+                        }*/
+                    },
+                ]
+            })
+        }
+
+        function destroySlider(slider) {
+            $(slider).slick('unslick');
         }
     })();
 

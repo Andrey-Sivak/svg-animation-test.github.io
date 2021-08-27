@@ -1,12 +1,24 @@
 .form {
 
+  @include response-to(small) {
+    max-width: 100%;
+  }
+
   &__field {
     padding-bottom: 26px;
     display: flex;
     border-bottom: 1px solid rgba(#fff, .4);
 
+    @include response-to(small) {
+      padding-bottom: 6px;
+    }
+
     &:not(:first-of-type) {
       margin-top: 43px;
+
+      @include response-to(small) {
+        margin-top: 30px;
+      }
     }
 
     &.no-text {
@@ -22,6 +34,14 @@
     &.file {
       padding-bottom: 0;
 
+      .form__label {
+
+        @include response-to(small) {
+          margin-bottom: 6px;
+          text-align: left;
+        }
+      }
+
       .form__input {
         color: transparent;
         overflow: visible;
@@ -32,6 +52,11 @@
         background-position: left center;
         background-repeat: no-repeat;
         background-size: initial;
+
+        @include response-to(small) {
+          font-size: 11px;
+          line-height: 174.7%;
+        }
 
         &.hide {
           position: absolute;
@@ -115,6 +140,14 @@
     &.budget {
       padding-bottom: 0;
 
+      .form__label {
+
+        @include response-to(small) {
+          text-align: left;
+          margin-bottom: 27px;
+        }
+      }
+
       .budget {
 
         &__wrap {
@@ -139,6 +172,13 @@
           cursor: pointer;
           margin-bottom: 26px;
 
+          @include response-to(small) {
+            padding-top: 11px;
+            padding-bottom: 11px;
+            font-size: 10px;
+            line-height: 174.7%;
+          }
+
           &:hover {
             background-color: rgba(#fff, .4);
           }
@@ -155,11 +195,21 @@
     &.checkbox {
       border-bottom: unset;
 
+      @include response-to(small) {
+        margin-top: 47px;
+        padding-bottom: 0;
+      }
+
       & span.error {
         display: none!important;
       }
 
       .form__label {
+
+        @include response-to(small) {
+          margin-left: auto;
+          margin-right: auto;
+        }
 
         & .pos-a {
           width: 0;
@@ -189,6 +239,12 @@
           user-select: none;
           @include transition-ease;
 
+          @include response-to(small) {
+            font-size: 11px;
+            line-height: 11px;
+            padding-left: 30px;
+          }
+
           &:before,
           &:after {
             @include transition-ease;
@@ -206,6 +262,11 @@
             height: 20px;
             left: 0;
             border: 1px solid #FFFFFF;
+
+            @include response-to(small) {
+              width: 18px;
+              height: 18px;
+            }
           }
 
           &:after {
@@ -213,6 +274,11 @@
             background: #FFFFFF;
             width: 10px;
             height: 10px;
+
+            @include response-to(small) {
+              width: 8px;
+              height: 8px;
+            }
           }
         }
       }
@@ -220,12 +286,16 @@
 
     & span.error {
       position: absolute;
-      //top: calc(100% + 7px);
       bottom: 2px;
       opacity: 0.6;
       font-weight: 300;
       font-size: 14px;
       line-height: 24px;
+
+      @include response-to(small) {
+        bottom: -20px;
+        font-size: 11px;
+      }
     }
   }
 
@@ -236,6 +306,12 @@
     font-size: 18px;
     line-height: 17px;
     cursor: pointer;
+
+    @include response-to(small) {
+      font-size: 11px;
+      line-height: 174.7%;
+      margin-right: 15px;
+    }
   }
 
   &__input {
@@ -264,6 +340,11 @@
         background-repeat: no-repeat;
         background-position: center;
         border: 2px solid #CE5E39;
+
+        @include response-to(small) {
+          width: 19px;
+          height: 19px;
+        }
       }
     }
   }
@@ -279,6 +360,11 @@
     font-size: 14px;
     line-height: 24px;
     opacity: .6;
+
+    @include response-to(small) {
+      font-size: 10px;
+      line-height: 174.7%;
+    }
   }
 
   &__btn {
@@ -299,6 +385,16 @@
 
     @include on-event {
       opacity: 1;
+    }
+
+    @include response-to(small) {
+      margin-top: 40px;
+      margin-left: auto;
+      margin-right: auto;
+      width: 161px;
+      padding: 11px 10px;
+      font-size: 14px;
+      line-height: 13px;
     }
   }
 }
