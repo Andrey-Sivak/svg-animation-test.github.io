@@ -1,0 +1,47 @@
+.projects-page {
+  max-width: 1327px;
+
+  .project {
+    display: flex;
+    align-items: center;
+    margin-bottom: 172px;
+
+    &:first-of-type {
+      margin-top: 153px;
+    }
+
+    &__img {
+      margin-right: 117px;
+      width: 557px;
+      height: 557px;
+      border-radius: 50%;
+      overflow: hidden;
+      @include flex-center();
+
+      &_image {
+
+      }
+    }
+
+    &__content {
+
+      &_title {
+        margin-bottom: 13px;
+        font-weight: bold;
+        font-size: 104px;
+        line-height: 118px;
+      }
+
+      &_list {
+        margin-bottom: 29px;
+      }
+
+      &_item {
+        display: block;
+        font-weight: 300;
+        font-size: 18px;
+        line-height: 239.2%;
+      }
+    }
+  }
+}

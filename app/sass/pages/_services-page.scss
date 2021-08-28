@@ -1,0 +1,163 @@
+.services-page {
+
+  .service {
+    max-width: 1413px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &:first-of-type {
+      margin-top: 60px;
+      margin-bottom: 223px;
+
+      .service__img {
+        margin-left: -39px;
+
+        &_shine {
+          top: 24px;
+          left: 36px;
+        }
+
+        &_circles {
+          top: -101px;
+          right: 229px;
+        }
+      }
+    }
+
+    &:nth-of-type(2) {
+
+      .service__img {
+
+        &_shine {
+          top: -27px;
+          right: -90px;
+        }
+
+        &_circles {
+          top: -132px;
+          left: 150px;
+        }
+      }
+    }
+
+    &:last-of-type {
+      margin-top: 139px;
+      margin-bottom: 84px;
+
+      .service__img {
+        margin-left: -43px;
+
+        &_shine {
+          bottom: 84px;
+          left: 30px;
+        }
+
+        &_circles {
+          bottom: 0;
+          right: 200px;
+        }
+      }
+    }
+
+    &:nth-of-type(even) {
+
+      .service__img {
+        order: 2;
+      }
+    }
+
+    &__content {
+      max-width: 730px;
+      width: 100%;
+      flex: 0 0 1;
+      font-size: 18px;
+      font-weight: 300;
+    }
+
+    &__title {
+      font-weight: bold;
+      font-size: 104px;
+      line-height: 118px;
+      margin-bottom: 42px;
+    }
+
+    &__horizontal-list {
+      display: flex;
+      align-items: flex-start;
+      flex-wrap: wrap;
+
+      &_item {
+        font-weight: inherit;
+        padding-left: 25px;
+        margin-top: 10px;
+
+        &:before {
+          position: absolute;
+          content: '';
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 5px;
+          height: 5px;
+          border-radius: 50%;
+          display: block;
+          box-sizing: border-box;
+          background-color: rgba(#fff, .7);
+        }
+
+        &:not(:last-of-type) {
+          margin-right: 80px;
+        }
+      }
+    }
+
+    &__vertical-list {
+
+      &_item {
+        display: block;
+        font-weight: 300;
+        font-size: 18px;
+        line-height: 42px;
+        padding-left: 5px;
+
+        &:before {
+          left: -13px;
+          position: absolute;
+          content: '';
+          top: 50%;
+          transform: translateY(-50%);
+          width: 5px;
+          height: 5px;
+          border-radius: 50%;
+          display: block;
+          box-sizing: border-box;
+          background-color: rgba(#fff, .7);
+        }
+      }
+    }
+
+    &__text {
+      margin-top: 50px;
+    }
+
+    &__img {
+
+      &_bg {
+        z-index: 2;
+      }
+
+      &_image {
+        z-index: 3;
+      }
+
+      &_shine {
+        z-index: 1;
+      }
+
+      &_circles {
+        z-index: 0;
+      }
+    }
+  }
+}
