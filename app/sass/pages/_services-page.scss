@@ -1,26 +1,88 @@
 .services-page {
 
+  @include response-to(huge) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
   .service {
     max-width: 1413px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 
+    @media(max-width: 1024px) {
+      flex-wrap: wrap;
+    }
+
     &:first-of-type {
       margin-top: 60px;
       margin-bottom: 223px;
 
+      @media(max-width: 1024px) {
+        margin-bottom: 100px;
+      }
+
+      @include response-to(small) {
+        margin-top: 90px;
+        margin-bottom: 0;
+      }
+
       .service__img {
         margin-left: -39px;
+
+        @media(max-width: 1024px) {
+          margin-left: auto;
+        }
+
+        @include response-to(small) {
+          max-width: 100%;
+          margin: 21px 0 66px;
+        }
+
+        &_bg {
+
+          @media(max-width: 1024px) {
+            width: 490px;
+            height: 480px;
+          }
+
+          @include response-to(small) {
+            width: 100vw;
+            height: 385px;
+            margin-left: -30px;
+          }
+        }
+
+        &_image {
+
+          @media(max-width: 1024px) {
+            width: 200px;
+          }
+
+          @include response-to(small) {
+            width: 185px;
+            height: 113px;
+          }
+        }
 
         &_shine {
           top: 24px;
           left: 36px;
+
+          @include response-to(small) {
+            height: 211px;
+            left: -57px;
+          }
         }
 
         &_circles {
           top: -101px;
           right: 229px;
+
+          @media(max-width: 1024px) {
+            width: 511px;
+          }
         }
       }
     }
@@ -29,14 +91,57 @@
 
       .service__img {
 
+        @media(max-width: 1024px) {
+          margin-top: 70px;
+        }
+
+        @include response-to(small) {
+          margin-top: 55px;
+        }
+
         &_shine {
           top: -27px;
           right: -90px;
+
+          @include response-to(small) {
+            height: 260px;
+            top: -27px;
+            right: -130px;
+          }
         }
 
         &_circles {
           top: -132px;
           left: 150px;
+
+          @media(max-width: 1024px) {
+            width: 453px;
+          }
+        }
+
+        &_image {
+
+          @media(max-width: 1024px) {
+            width: 200px;
+          }
+
+          @include response-to(small) {
+            width: 167px;
+            height: 75px;
+          }
+        }
+
+        &_bg {
+
+          @media(max-width: 1024px) {
+            width: 400px;
+            height: 395px;
+          }
+
+          @include response-to(small) {
+            width: 327px;
+            height: 296px;
+          }
         }
       }
     }
@@ -45,17 +150,60 @@
       margin-top: 139px;
       margin-bottom: 84px;
 
+      @media(max-width: 1024px) {
+        margin-top: 100px;
+      }
+
+      @include response-to(small) {
+        margin-top: 140px;
+      }
+
       .service__img {
         margin-left: -43px;
+
+        @media(max-width: 1024px) {
+          margin-left: auto;
+        }
+
+        @include response-to(small) {
+          margin-left: -80px;
+        }
 
         &_shine {
           bottom: 84px;
           left: 30px;
+
+          @include response-to(small) {
+            width: 279px;
+            bottom: 4px;
+            left: 80px;
+          }
         }
 
         &_circles {
           bottom: 0;
           right: 200px;
+
+          @media(max-width: 1024px) {
+            width: 490px;
+          }
+        }
+
+        &_bg {
+          height: 527px;
+          width: 535px;
+
+          @include response-to(small) {
+            height: 429px;
+          }
+        }
+
+        &_image {
+          width: 300px;
+
+          @include response-to(small) {
+            width: 244px;
+          }
         }
       }
     }
@@ -80,6 +228,21 @@
       font-size: 104px;
       line-height: 118px;
       margin-bottom: 42px;
+
+      @include response-to(large) {
+        font-size: 75px;
+      }
+
+      @media(max-width: 1024px) {
+        font-size: 55px;
+        line-height: 78px;
+      }
+
+      @include response-to(small) {
+        font-size: 24px;
+        line-height: 29px;
+        margin-bottom: 21px;
+      }
     }
 
     &__horizontal-list {
@@ -91,6 +254,12 @@
         font-weight: inherit;
         padding-left: 25px;
         margin-top: 10px;
+
+        @include response-to(small) {
+          font-size: 10px;
+          line-height: 10px;
+          padding-left: 9px;
+        }
 
         &:before {
           position: absolute;
@@ -104,10 +273,23 @@
           display: block;
           box-sizing: border-box;
           background-color: rgba(#fff, .7);
+
+          @include response-to(small) {
+            width: 3px;
+            height: 3px;
+          }
         }
 
         &:not(:last-of-type) {
           margin-right: 80px;
+
+          @include response-to(large) {
+            margin-right: 50px;
+          }
+
+          @include response-to(small) {
+            margin-right: 23px;
+          }
         }
       }
     }
@@ -121,8 +303,14 @@
         line-height: 42px;
         padding-left: 5px;
 
+        @include response-to(small) {
+          font-size: 10px;
+          line-height: 22px;
+          padding-left: 9px;
+        }
+
         &:before {
-          left: -13px;
+          left: 0;
           position: absolute;
           content: '';
           top: 50%;
@@ -133,15 +321,37 @@
           display: block;
           box-sizing: border-box;
           background-color: rgba(#fff, .7);
+
+          @include response-to(small) {
+            width: 3px;
+            height: 3px;
+          }
         }
       }
     }
 
     &__text {
       margin-top: 50px;
+
+      @media(max-width: 1024px) {
+        margin-top: 30px;
+      }
+
+      @include response-to(small) {
+        margin-top: 21px;
+        font-size: 11px;
+        line-height: 174.7%;
+        max-width: 80%;
+      }
     }
 
     &__img {
+
+      @media(max-width: 1024px) {
+        order: 2;
+        margin-left: auto;
+        margin-right: auto;
+      }
 
       &_bg {
         z-index: 2;

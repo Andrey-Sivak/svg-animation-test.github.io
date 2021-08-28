@@ -1,6 +1,11 @@
 .projects-page {
   max-width: 1327px;
 
+  @include response-to(huge) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
   .project {
     display: flex;
     align-items: center;
