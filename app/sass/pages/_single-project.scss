@@ -1,12 +1,12 @@
+.life-cassette {
+  @import "life-cassette";
+}
+
+.shabba {
+  @import "shabba";
+}
+
 .single-projects-page {
-
-  .life-cassette {
-    @import "life-cassette";
-  }
-
-  .shabba {
-    @import "shabba";
-  }
 
   .single-project {
 
@@ -37,7 +37,7 @@
     }
 
     &__caption {
-      font-weight: bold;
+      font-weight: 500;
       font-size: 144px;
       line-height: 118px;
     }

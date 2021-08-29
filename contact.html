@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script src="./dist/js/main.min.js"></script>
   <link rel="stylesheet" href="./dist/css/main.min.css">
-  <title>Portfolio</title>
+  <title>Contact us</title>
 </head>
 <body>
 
@@ -111,17 +111,17 @@
         <a href="./services.html" class="menu__item_link hover pos-a">Services</a>
         <a href="./services.html" class="menu__item_link">Services</a>
       </li>
-      <li class="menu__item pos-r active">
+      <li class="menu__item pos-r">
         <a href="./portfolio.html" class="menu__item_link hover pos-a">Portfolio</a>
         <a href="./portfolio.html" class="menu__item_link">Portfolio</a>
       </li>
-      <li class="menu__item pos-r">
+      <li class="menu__item pos-r active">
         <a href="./contact.html" class="menu__item_link hover pos-a">Contact Us</a>
         <a href="./contact.html" class="menu__item_link">Contact Us</a>
       </li>
       <li class="menu__item popup-show request pos-r active">
-        <a href="" class="menu__item_link hover pos-a">Request Estimate</a>
-        <a href="" class="menu__item_link">Request Estimate</a>
+        <a href="#" class="menu__item_link hover pos-a">Request Estimate</a>
+        <a href="#" class="menu__item_link">Request Estimate</a>
       </li>
     </ul>
   </nav>
@@ -134,76 +134,90 @@
   <span class="mob-menu-btn hide"></span>
 </header>
 
-<main class="projects-page pos-r mx-auto full-width">
-  <div class="caption-block pos-r">
-    <h1 class="page-caption">Our projects</h1>
-    <p class="caption-block__text">We’ve helped a wide range of companies create amazing experiences. Here are some of those projects.</p>
-    <svg width="1920"
-         height="378"
-         viewBox="0 0 1920 378"
-         fill="none"
-         class="caption-block__bg pos-a absolute-center-x"
-         xmlns="http://www.w3.org/2000/svg">
-      <path opacity="0.1" d="M-222 105.702C-166 5.53556 380.5 -99.2988 713.5 177.7C957.682 380.818 1502 551.202 1936.5 36.7028" stroke="white" stroke-width="2" stroke-dasharray="6 6"/>
-    </svg>
-  </div>
-
-  <section class="project mx-auto">
-    <a href="./life-cassette.html" class="project__img">
-      <img src="./dist/img/portfolio1.png"
-           width="557"
-           height="557"
-           alt="img"
-           class="project__img_image"
-           loading="lazy">
-    </a>
-    <div class="project__content">
-      <h2 class="project__content_title"><a href="./life-cassette.html">LifeCassette</a></h2>
-      <ul class="project__content_list">
-        <li class="project__content_item">Native iOS and Android Applications</li>
-        <li class="project__content_item">Backend</li>
-      </ul>
-      <a href="./life-cassette.html" class="learn-more-link pos-r">Learn more</a>
+<main class="pos-r">
+  <section class="full-width mx-auto pos-r contact-section">
+    <div class="pos-a absolute-center-y contact-section__circle-bg"></div>
+    <div class="pos-r contact-section__block">
+      <h2 class="section-caption">Contact us</h2>
+      <p class="contact-section__block_email">hi@appyclick.com</p>
+      <p class="contact-section__block_text">We are a design and web development studio that delivers superlative work for</p>
     </div>
-  </section>
+    <div class="contact-section__block">
+      <form action="#" class="form">
 
-  <section class="project mx-auto">
-    <a href="./stake.html" class="project__img">
-      <img src="./dist/img/portfolio2.png"
-           width="557"
-           height="557"
-           alt="img"
-           class="project__img_image"
-           loading="lazy">
-    </a>
-    <div class="project__content">
-      <h2 class="project__content_title"><a href="./stake.html">Stake</a></h2>
-      <ul class="project__content_list">
-        <li class="project__content_item">Design</li>
-        <li class="project__content_item">Native iOS and Android Applications</li>
-        <li class="project__content_item">Backend</li>
-      </ul>
-      <a href="./stake.html" class="learn-more-link pos-r">Learn more</a>
-    </div>
-  </section>
+        <div class="full-width pos-r form__field">
+          <label for="f_name" class="form__label">Name</label>
+          <input type="text"
+                 name="f_name"
+                 id="f_name"
+                 class="form__input">
+          <span class="warn"></span>
+        </div>
 
-  <section class="project mx-auto">
-    <a href="./shabba.html" class="project__img">
-      <img src="./dist/img/portfolio3.png"
-           width="557"
-           height="557"
-           alt="img"
-           class="project__img_image"
-           loading="lazy">
-    </a>
-    <div class="project__content">
-      <h2 class="project__content_title"><a href="./shabba.html">Labdoc</a></h2>
-      <ul class="project__content_list">
-        <li class="project__content_item">Design</li>
-        <li class="project__content_item">Native iOS and Android Applications</li>
-        <li class="project__content_item">Backend</li>
-      </ul>
-      <a href="./shabba.html" class="learn-more-link pos-r">Learn more</a>
+        <div class="full-width pos-r form__field">
+          <label for="email" class="form__label">Email</label>
+          <input type="text"
+                 name="email"
+                 id="email"
+                 class="form__input">
+          <span class="warn"></span>
+        </div>
+
+        <div class="full-width pos-r form__field">
+          <label for="message" class="form__label">Product Details</label>
+          <textarea  name="message"
+                     id="message"
+                     class="form__input"
+                     rows="1"></textarea>
+          <span class="warn"></span>
+        </div>
+
+        <div class="full-width pos-r form__field file no-text">
+          <label for="file1" class="form__label file-label">Attach File</label>
+          <div class="pos-r full-width form__input_wrap">
+            <div class="files empty"></div>
+            <input name="file1"
+                   type="file"
+                   id="file1"
+                   accept=".jpg, .png, .docx, .doc, .pdf, .rar, .zip"
+                   class="pos-r form__input"
+                   multiple>
+          </div>
+          <p class="form__note full-width">We are a design and web development studio that delivers</p>
+        </div>
+
+        <div class="full-width pos-r form__field budget no-text">
+          <label for="budget" class="form__label">Project Budget</label>
+          <input name="budget"
+                 type="hidden"
+                 value="< 100 $"
+                 id="budget"
+                 class="form__input">
+          <div class="budget__wrap">
+            <span class="text-center budget__item active">< 100 $</span>
+            <span class="text-center budget__item">100 – 500 $</span>
+            <span class="text-center budget__item">500 – 1 000 $</span>
+            <span class="text-center budget__item">1 000 - 10 000 $</span>
+            <span class="text-center budget__item">10 000 – 50 000 $</span>
+            <span class="text-center budget__item">50 000 - 100 000 $</span>
+            <span class="text-center budget__item">100 000 - 500 000 $</span>
+            <span class="text-center budget__item">> 500 000 $</span>
+          </div>
+        </div>
+
+        <div class="full-width pos-r form__field checkbox">
+          <label for="check" class="pos-r form__label">
+            <input name="check"
+                   type="checkbox"
+                   id="check"
+                   class="pos-a">
+            <span class="text">I agree to the processing of personal data</span>
+            <span class="warn"></span>
+          </label>
+        </div>
+
+        <button type="submit" class="text-center form__btn">Send</button>
+      </form>
     </div>
   </section>
 </main>

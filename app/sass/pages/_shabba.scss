@@ -1,19 +1,154 @@
 .first-section {
+  max-width: 994px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transform: translateX(90px);
+  margin-bottom: 388px;
 
+  .section__content {
+
+    .note {
+      width: 450px;
+      height: 450px;
+      background: linear-gradient(148.83deg, #131213 23.16%, #242424 82.79%);
+      @include flex-center();
+      border-radius: 50%;
+      font-weight: bold;
+      font-size: 36px;
+      line-height: 228.2%;
+    }
+  }
 }
 
 .second-section {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 47px;
+  align-items: stretch;
+  margin-bottom: 1060px;
+  max-width: 1413px;
 
+  .section__content {
+
+    .text24 {
+      max-width: 472px;
+    }
+  }
+
+  .section__images {
+    position: relative;
+    width: 743px;
+
+    img {
+      position: absolute;
+
+      &.left {
+        left: 0;
+        z-index: 1;
+        top: -115px;
+      }
+
+      &.right {
+        right: 0;
+        z-index: 2;
+        top: -223px;
+      }
+    }
+  }
 }
 
 .third-section {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 47px;
+  align-items: stretch;
+  margin-bottom: 654px;
+  max-width: 1413px;
 
+  .section__content {
+
+    .text24 {
+      max-width: 472px;
+    }
+  }
+
+  .section__images {
+    position: relative;
+    width: 743px;
+
+    img {
+      position: absolute;
+
+      &.left {
+        left: 0;
+        z-index: 1;
+        top: -407px;
+      }
+
+      &.right {
+        right: 0;
+        z-index: 2;
+        top: -296px;
+      }
+    }
+  }
 }
 
 .four-section {
+  margin-bottom: 956px;
 
+  .section__content {
+    max-width: 863px;
+    margin-top: 68px;
+  }
+
+  .section__images {
+    display: flex;
+    justify-content: center;
+
+    img {
+
+      &:first-of-type {
+        margin-right: 129px;
+      }
+    }
+  }
 }
 
 .five-section {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 47px;
+  align-items: stretch;
+  margin-bottom: 654px;
+  max-width: 1413px;
 
+  .section__content {
+
+    .text24 {
+      max-width: 552px;
+    }
+  }
+
+  .section__images {
+    width: 744px;
+    position: relative;
+
+    img {
+      position: absolute;
+
+      &.left {
+        left: 0;
+        z-index: 1;
+        top: -724px;
+      }
+
+      &.right {
+        right: 0;
+        z-index: 2;
+        top: -455px;
+      }
+    }
+  }
 }

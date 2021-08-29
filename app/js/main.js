@@ -431,12 +431,12 @@ window.addEventListener('load', function () {
     })();
     
     (function servicesAnimation() {
-        if (!document.querySelector('.second-section__item') || isMobile) {
+        if (!document.querySelector('.service-animate') || isMobile) {
             return;
         }
 
-        const items = [...document.querySelectorAll('.second-section__item')];
-        const shines = [...document.querySelectorAll('.second-section__item_shine')];
+        const items = [...document.querySelectorAll('.service-animate')];
+        const shines = [...document.querySelectorAll('.service-animate-shine')];
         const itemsCoords = {};
 
         items.forEach((item, i) => {

@@ -67,8 +67,8 @@
         }
 
         &_shine {
-          top: 24px;
-          left: 36px;
+          left: 22%;
+          top: 19%;
 
           @include response-to(small) {
             height: 211px;
@@ -100,8 +100,8 @@
         }
 
         &_shine {
-          top: -27px;
-          right: -90px;
+          top: -2%;
+          left: -3%;
 
           @include response-to(small) {
             height: 260px;
@@ -170,8 +170,8 @@
         }
 
         &_shine {
-          bottom: 84px;
-          left: 30px;
+          left: 23%;
+          top: 11%;
 
           @include response-to(small) {
             width: 279px;

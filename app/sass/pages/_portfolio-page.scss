@@ -27,6 +27,13 @@
       }
     }
 
+    &:hover {
+
+      .project__img_image {
+        filter: grayscale(0%);
+      }
+    }
+
     &__img {
       margin-right: 117px;
       width: 557px;
@@ -57,6 +64,8 @@
       }
 
       &_image {
+        filter: grayscale(100%);
+        @include transition-ease;
 
         @include response-to(medium) {
           width: 100%;
