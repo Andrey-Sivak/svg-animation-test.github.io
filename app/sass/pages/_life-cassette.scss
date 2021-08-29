@@ -1,0 +1,265 @@
+.first-section {
+  margin-top: 94px;
+  max-width: 1413px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 62px 0 50px;
+
+  .section__content {
+    max-width: 586px;
+
+    .bold {
+      margin-bottom: 85px;
+    }
+  }
+
+  .section__images {
+    display: flex;
+
+    img {
+      position: relative;
+
+      &.bottom {
+        z-index: 1;
+        left: 150px;
+        top: -62px;
+      }
+
+      &.top {
+        z-index: 2;
+        top: 50px;
+      }
+    }
+  }
+}
+
+.second-section {
+  margin-top: 108px;
+  max-width: 1636px;
+
+  .text36 {
+    margin-bottom: 33px;
+  }
+
+  .text24 {
+    margin-bottom: 72px;
+  }
+
+  .section__images {
+    display: flex;
+    justify-content: center;
+
+    img {
+
+      &:first-of-type {
+        margin-right: 80px;
+      }
+    }
+  }
+}
+
+.third-section {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 228px;
+  max-width: 1413px;
+  padding: 20px 0 115px;
+
+  .section__content {
+    max-width: 584px;
+
+    .text36 {
+      margin-bottom: 26px;
+    }
+
+    .text24 {
+      margin-bottom: 50px;
+    }
+  }
+
+  .section__images {
+    position: relative;
+    padding-top: 86px;
+
+    .right {
+      z-index: 1;
+      position: relative;
+    }
+
+    .left {
+      z-index: 2;
+      position: absolute;
+      top: -20px;
+      right: 296px;
+    }
+
+    .top {
+      z-index: 3;
+      position: absolute;
+      top: 480px;
+      right: 83px;
+    }
+  }
+}
+
+.four-section {
+  margin-top: 85px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  max-width: 1688px;
+
+  .section__content {
+    max-width: 863px;
+    padding-top: 398px;
+    position: relative;
+    z-index: 2;
+
+    .text24 {
+      margin-top: 36px;
+    }
+  }
+
+  .section__images {
+    position: relative;
+    z-index: 1;
+
+    .circle {
+      display: block;
+      filter: unset;
+
+      &__wrap {
+        position: relative;
+        width: fit-content;
+
+        &.big {
+          z-index: 1;
+        }
+
+        &.small {
+          z-index: 2;
+          position: absolute;
+          bottom: -218px;
+          right: -63px;
+        }
+
+        &:before {
+          width: 130.2%;
+          height: 130.2%;
+          position: absolute;
+          display: block;
+          border: 2px dashed rgba(#fff, .4);
+          border-radius: 50%;
+          content: '';
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+    }
+  }
+}
+
+.five-section {
+  max-width: 1407px;
+  position: relative;
+  margin-top: 300px;
+
+  .section__content {
+    position: absolute;
+    width: 100%;
+    max-width: 516px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+
+    .text36 {
+      margin-bottom: 30px;
+    }
+  }
+
+  .section__images {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.six-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  margin-top: 480px;
+  max-width: 1413px;
+
+  .section__content {
+    max-width: 642px;
+
+    .text36 {
+      margin-bottom: 52px;
+    }
+  }
+
+  .section__images {
+    width: 724px;
+    position: relative;
+
+    img {
+      position: absolute;
+
+      &.left {
+        left: 0;
+        z-index: 1;
+        top: -336px;
+      }
+
+      &.right {
+        right: 0;
+        z-index: 2;
+        top: -84px;
+      }
+    }
+  }
+}
+
+.seven-section {
+  max-width: 1413px;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  margin-top: 280px;
+  margin-bottom: 500px;
+
+  .section__content {
+    max-width: 677px;
+    margin-left: -70px;
+
+    .text36 {
+      margin-bottom: 37px;
+    }
+  }
+
+  .section__images {
+    width: 724px;
+    position: relative;
+
+    img {
+      position: absolute;
+
+      &.left {
+        left: 0;
+        z-index: 1;
+        top: -195px;
+      }
+
+      &.right {
+        right: 0;
+        z-index: 2;
+        top: 102px;
+      }
+    }
+  }
+}
