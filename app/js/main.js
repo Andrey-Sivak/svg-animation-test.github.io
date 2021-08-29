@@ -505,14 +505,6 @@ window.addEventListener('load', function () {
                 swipeToSlide: true,
                 prevArrow: '',
                 nextArrow: '',
-                responsive: [
-                    {
-                        /*breakpoint: 475,
-                        settings: {
-                            slidesToShow: 4,
-                        }*/
-                    },
-                ]
             })
         }
 
