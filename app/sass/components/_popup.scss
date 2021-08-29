@@ -46,6 +46,9 @@
       right: unset;
       top: 10%;
       left: 20px;
+      font-size: 14px;
+      line-height: 13px;
+      padding-left: 28px;
     }
 
     &:before {
@@ -61,6 +64,11 @@
       background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
+
+      @include response-to(small) {
+        width: 14px;
+        height: 13px;
+      }
     }
   }
 

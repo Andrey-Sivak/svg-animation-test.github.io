@@ -498,6 +498,8 @@ window.addEventListener('load', function () {
 
         function initSlider(slider) {
             $(slider).slick({
+                autoplay: true,
+                autoplaySpeed: 3000,
                 infinite: true,
                 slidesToShow: 1,
                 swipeToSlide: true,
