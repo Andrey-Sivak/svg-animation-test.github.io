@@ -9,6 +9,24 @@
   }
 }
 
+.single-project--top-bg,
+.single-project--bottom-bg {
+  position: absolute;
+  z-index: 0;
+  width: 100%;
+  height: auto;
+}
+
+.single-project--top-bg {
+  left: 0;
+  top: 0;
+}
+
+.single-project--bottom-bg {
+  bottom: 0;
+  right: 0;
+}
+
 .no-scrolling {
   overflow: hidden;
 }

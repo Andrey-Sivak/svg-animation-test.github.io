@@ -72,6 +72,21 @@ input[type="number"] {
       padding-left: 15px;
       padding-right: 15px; } }
 
+.single-project--top-bg,
+.single-project--bottom-bg {
+  position: absolute;
+  z-index: 0;
+  width: 100%;
+  height: auto; }
+
+.single-project--top-bg {
+  left: 0;
+  top: 0; }
+
+.single-project--bottom-bg {
+  bottom: 0;
+  right: 0; }
+
 .no-scrolling {
   overflow: hidden; }
 
@@ -5389,6 +5404,10 @@ input[type="number"] {
             justify-content: center; }
     .life-cassette .second-section .section__images img:first-of-type {
       margin-right: 80px; }
+  .life-cassette .second-section + .section__bg {
+    left: 0;
+    width: 100%;
+    top: -97px; }
 
 .life-cassette .third-section {
   display: -webkit-box;
@@ -5397,9 +5416,13 @@ input[type="number"] {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
   margin-top: 228px;
   max-width: 1413px;
-  padding: 20px 0 115px; }
+  padding: 20px 0 115px;
+  margin-bottom: 221px; }
   .life-cassette .third-section .section__content {
     max-width: 584px; }
     .life-cassette .third-section .section__content .text36 {
@@ -5422,6 +5445,9 @@ input[type="number"] {
       position: absolute;
       top: 480px;
       right: 83px; }
+  .life-cassette .third-section + .section__bg {
+    right: 0;
+    top: -114px; }
 
 .life-cassette .four-section {
   margin-top: 85px;
@@ -5474,6 +5500,9 @@ input[type="number"] {
           -webkit-transform: translate(-50%, -50%);
               -ms-transform: translate(-50%, -50%);
                   transform: translate(-50%, -50%); }
+  .life-cassette .four-section + .section__bg {
+    left: 0;
+    top: -303px; }
 
 .life-cassette .five-section {
   max-width: 1407px;
@@ -5532,6 +5561,9 @@ input[type="number"] {
         right: 0;
         z-index: 2;
         top: -84px; }
+  .life-cassette .six-section + .section__bg {
+    right: 0;
+    top: -500px; }
 
 .life-cassette .seven-section {
   max-width: 1413px;
@@ -5564,6 +5596,9 @@ input[type="number"] {
         right: 0;
         z-index: 2;
         top: 102px; }
+  .life-cassette .seven-section + .section__bg {
+    left: 0;
+    top: -473px; }
 
 .shabba .first-section {
   max-width: 994px;
@@ -5645,7 +5680,7 @@ input[type="number"] {
   -webkit-box-align: stretch;
       -ms-flex-align: stretch;
           align-items: stretch;
-  margin-bottom: 654px;
+  margin-bottom: 350px;
   max-width: 1413px; }
   .shabba .third-section .section__content .text24 {
     max-width: 472px; }
@@ -5737,9 +5772,19 @@ input[type="number"] {
   font-size: 144px;
   line-height: 118px; }
 
-.single-projects-page .section__images img {
-  -webkit-filter: drop-shadow(0px 0px 26px rgba(0, 0, 0, 0.25));
-          filter: drop-shadow(0px 0px 26px rgba(0, 0, 0, 0.25)); }
+.single-projects-page .section__bg {
+  position: absolute;
+  z-index: 0;
+  height: auto; }
+
+.single-projects-page .section__content {
+  z-index: 1; }
+
+.single-projects-page .section__images {
+  z-index: 1; }
+  .single-projects-page .section__images img {
+    -webkit-filter: drop-shadow(0px 0px 26px rgba(0, 0, 0, 0.25));
+            filter: drop-shadow(0px 0px 26px rgba(0, 0, 0, 0.25)); }
 
 body,
 html {

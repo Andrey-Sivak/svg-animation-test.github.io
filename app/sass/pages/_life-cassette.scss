@@ -57,14 +57,22 @@
       }
     }
   }
+
+  & + .section__bg {
+    left: 0;
+    width: 100%;
+    top: -97px;
+  }
 }
 
 .third-section {
   display: flex;
   justify-content: space-between;
+  align-items: stretch;
   margin-top: 228px;
   max-width: 1413px;
   padding: 20px 0 115px;
+  margin-bottom: 221px;
 
   .section__content {
     max-width: 584px;
@@ -100,6 +108,11 @@
       top: 480px;
       right: 83px;
     }
+  }
+
+  & + .section__bg {
+    right: 0;
+    top: -114px;
   }
 }
 
@@ -158,6 +171,11 @@
         }
       }
     }
+  }
+
+  & + .section__bg {
+    left: 0;
+    top: -303px;
   }
 }
 
@@ -223,6 +241,11 @@
       }
     }
   }
+
+  & + .section__bg {
+    right: 0;
+    top: -500px;
+  }
 }
 
 .seven-section {
@@ -261,5 +284,10 @@
         top: 102px;
       }
     }
+  }
+
+  & + .section__bg {
+    left: 0;
+    top: -473px;
   }
 }
