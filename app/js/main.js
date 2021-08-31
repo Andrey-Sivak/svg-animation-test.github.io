@@ -80,25 +80,6 @@ window.addEventListener('load', function () {
         textarea.addEventListener('input', textareaHandleInput);
         fileInput.addEventListener('change', handleFileInput);
         budgetList.addEventListener('click', selectBudget);
-
-        function selectBudget(e) {
-            const target = e.target;
-
-            if(!target.classList.contains('budget__item') || target.classList.contains('active')) {
-                return;
-            }
-
-            const budgetInput = budgetList.querySelector('input');
-            const listWrap = budgetList.querySelector('.budget__wrap');
-
-            if (listWrap.children.length) {
-                document.querySelector('.budget__item.active')
-                    .classList.remove('active');
-
-                target.classList.add('active');
-                budgetInput.value = target.innerHTML;
-            }
-        }
     })();
 
     (function firstSectionAnimation() {
@@ -329,22 +310,36 @@ window.addEventListener('load', function () {
             return;
         }
 
-        const popup = document.querySelector('.popup');
+        const popups = [...document.querySelectorAll('.popup')];
         const popupBtns = [...document.querySelectorAll('.popup-show')];
-        const form = document.querySelector('.popup form');
-        const textarea = form.querySelector('textarea');
-        const fileInput = form.querySelector('input[type="file"]');
+        const forms = [...document.querySelectorAll('.popup form')];
 
-        textarea.addEventListener('input', textareaHandleInput);
-        fileInput.addEventListener('change', handleFileInput);
+        forms.forEach(f => {
+            const textarea = f.querySelector('textarea');
+            const fileInput = f.querySelector('input[type="file"]');
 
-        popup.addEventListener('click', hidePopup);
+            textarea.addEventListener('input', textareaHandleInput);
+            fileInput.addEventListener('change', handleFileInput);
+
+            if (f.querySelector('.form__field.budget')) {
+                const budgetList = f.querySelector('.form__field.budget');
+                budgetList.addEventListener('click', selectBudget);
+            }
+        });
+
+        popups.forEach(p => {
+            p.addEventListener('click', hidePopup);
+        });
+
         popupBtns.forEach(p => {
             p.addEventListener('click', showPopup);
         });
 
         function showPopup(e) {
             e.preventDefault();
+
+            const targetPopup = this.dataset.popup;
+            const popup = document.querySelector(`.popup[data-popup="${targetPopup}"]`);
 
             if (!popup.classList.contains('active')) {
                 popup.classList.add('active');
@@ -354,8 +349,9 @@ window.addEventListener('load', function () {
 
         function hidePopup(e) {
             const target = e.target;
+            const popup = document.querySelector('.popup.active');
 
-            if (target.dataset.close && popup.classList.contains('active')) {
+            if (target.dataset.close) {
                 e.preventDefault();
 
                 popup.classList.remove('active');
@@ -401,6 +397,20 @@ window.addEventListener('load', function () {
                     popup_check: {
                         required: true,
                     },
+                    resume_f_name: {
+                        required: true,
+                        f_name: true,
+                    },
+                    resume_email: {
+                        required: true,
+                        email: true,
+                    },
+                    resume_message: {
+                        required: true,
+                    },
+                    resume_check: {
+                        required: true,
+                    },
                 },
                 errorElement : 'span',
                 errorPlacement: function(error, element) {
@@ -414,8 +424,10 @@ window.addEventListener('load', function () {
                 messages: {
                     f_name: 'Недопустимое значение',
                     popup_f_name: 'Недопустимое значение',
+                    resume_f_name: 'Недопустимое значение',
                     email: 'Некорректный e-mail',
-                    popup_email: 'Некорректный e-mail'
+                    popup_email: 'Некорректный e-mail',
+                    resume_email: 'Некорректный e-mail',
                 }
             })
         });
@@ -509,7 +521,9 @@ window.addEventListener('load', function () {
         }
 
         function destroySlider(slider) {
-            $(slider).slick('unslick');
+            if ($(slider)) {
+                $(slider).slick('unslick');
+            }
         }
     })();
 
@@ -633,4 +647,23 @@ function getArctctg(x, y) {
     if (x < 0 && y < 0) return Math.PI + Math.atan(y / x);
 
     if (x > 0 && y < 0) return 3 * Math.PI / 2 + Math.abs(Math.atan(x / y));
+}
+
+function selectBudget(e) {
+    const target = e.target;
+
+    if(!target.classList.contains('budget__item') || target.classList.contains('active')) {
+        return;
+    }
+
+    const budgetInput = this.querySelector('input');
+    const listWrap = this.querySelector('.budget__wrap');
+
+    if (listWrap.children.length) {
+        this.querySelector('.budget__item.active')
+            .classList.remove('active');
+
+        target.classList.add('active');
+        budgetInput.value = target.innerHTML;
+    }
 }

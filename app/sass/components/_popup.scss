@@ -21,11 +21,17 @@
     margin-left: auto;
     width: 650px;
 
+    @media(max-width: 1480px) {
+      right: 35px;
+    }
+
     @include response-to(small) {
       width: 100%;
       right: unset;
       padding-left: 20px;
       padding-right: 20px;
+      transform: unset;
+      top: 20%;
     }
 
     label[for="popup_check"] {
@@ -41,6 +47,10 @@
     font-size: 18px;
     line-height: 17px;
     padding-left: 33px;
+
+    @media(max-width: 1480px) {
+      right: 35px;
+    }
 
     @include response-to(small) {
       right: unset;

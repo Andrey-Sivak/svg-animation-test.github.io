@@ -134,10 +134,10 @@
   <span class="mob-menu-btn hide"></span>
 </header>
 
-<main class="careers-page pos-r">
+<main class="careers-page single pos-r">
 
   <div class="careers mx-auto">
-    <section class="career">
+    <section class="career one">
       <div class="career__img pos-r">
         <div class="career__img_wrap pos-r">
           <svg width="279"
@@ -179,7 +179,7 @@
         <p class="career__content_item pos-r">Designing user interactions on web pages.</p>
         <p class="career__content_item pos-r">Developing back end website applications.</p>
         <p class="career__content_item pos-r">Creating servers and databases for functionality.</p>
-        <a href="#" class="learn-more-link pos-r">Send resume</a>
+        <a href="#" data-popup="resume" class="popup-show learn-more-link pos-r">Send resume</a>
       </div>
     </section>
   </div>
@@ -216,13 +216,13 @@
         <a href="./careers.html" class="footer__menu_link absolute-center pos-a hover">Careers</a>
       </li>
       <li class="pos-r footer__menu_item active">
-        <a href="#" class="popup-show footer__menu_link">Request Estimate</a>
+        <a href="#" data-popup="request-estimate" class="popup-show footer__menu_link">Request Estimate</a>
       </li>
     </ul>
   </nav>
 </footer>
 
-<div class="popup" data-close="true">
+<div class="popup" data-popup="request-estimate" data-close="true">
   <div class="pos-a absolute-center-y popup__circle-bg"></div>
   <span class="popup-close pos-a" data-close="true">Close</span>
   <form action="#" class="form pos-r">
@@ -264,7 +264,26 @@
                accept=".jpg, .png, .docx, .doc, .pdf, .rar, .zip"
                class="pos-r form__input">
       </div>
-      <p class="form__note full-width">Your resume</p>
+      <p class="form__note full-width">We are a design and web development studio that delivers</p>
+    </div>
+
+    <div class="full-width pos-r form__field budget no-text">
+      <label for="popup_budget" class="form__label">Project Budget</label>
+      <input name="popup_budget"
+             type="hidden"
+             value="< 100 $"
+             id="popup_budget"
+             class="form__input">
+      <div class="budget__wrap">
+        <span class="text-center budget__item active">< 100 $</span>
+        <span class="text-center budget__item">100 – 500 $</span>
+        <span class="text-center budget__item">500 – 1 000 $</span>
+        <span class="text-center budget__item">1 000 - 10 000 $</span>
+        <span class="text-center budget__item">10 000 – 50 000 $</span>
+        <span class="text-center budget__item">50 000 - 100 000 $</span>
+        <span class="text-center budget__item">100 000 - 500 000 $</span>
+        <span class="text-center budget__item">> 500 000 $</span>
+      </div>
     </div>
 
     <div class="full-width pos-r form__field checkbox">
@@ -272,6 +291,66 @@
         <input name="popup_check"
                type="checkbox"
                id="popup_check"
+               class="pos-a">
+        <span class="text">I agree to the processing of personal data</span>
+        <span class="warn"></span>
+      </label>
+    </div>
+
+    <button type="submit" class="text-center form__btn">Send</button>
+  </form>
+</div>
+
+<div class="popup" data-popup="resume" data-close="true">
+  <div class="pos-a absolute-center-y popup__circle-bg"></div>
+  <span class="popup-close pos-a" data-close="true">Close</span>
+  <form action="#" class="form pos-r">
+
+    <div class="full-width pos-r form__field">
+      <label for="resume_f_name" class="form__label">Name</label>
+      <input type="text"
+             name="resume_f_name"
+             id="resume_f_name"
+             class="form__input">
+      <span class="warn"></span>
+    </div>
+
+    <div class="full-width pos-r form__field">
+      <label for="resume_email" class="form__label">Email</label>
+      <input type="text"
+             name="resume_email"
+             id="resume_email"
+             class="form__input">
+      <span class="warn"></span>
+    </div>
+
+    <div class="full-width pos-r form__field">
+      <label for="resume_message" class="form__label">Product Details</label>
+      <textarea  name="resume_message"
+                 id="resume_message"
+                 class="form__input"
+                 rows="1"></textarea>
+      <span class="warn"></span>
+    </div>
+
+    <div class="full-width pos-r form__field file no-text">
+      <label for="resume_file1" class="form__label file-label">Attach File</label>
+      <div class="pos-r full-width form__input_wrap">
+        <div class="files empty"></div>
+        <input name="resume_file1"
+               type="file"
+               id="resume_file1"
+               accept=".jpg, .png, .docx, .doc, .pdf, .rar, .zip"
+               class="pos-r form__input">
+      </div>
+      <p class="form__note full-width">Your resume</p>
+    </div>
+
+    <div class="full-width pos-r form__field checkbox">
+      <label for="resume_check" class="pos-r form__label">
+        <input name="resume_check"
+               type="checkbox"
+               id="resume_check"
                class="pos-a">
         <span class="text">I agree to the processing of personal data</span>
         <span class="warn"></span>

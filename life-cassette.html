@@ -337,13 +337,13 @@
         <a href="./careers.html" class="footer__menu_link absolute-center pos-a hover">Careers</a>
       </li>
       <li class="pos-r footer__menu_item active">
-        <a href="#" class="popup-show footer__menu_link">Request Estimate</a>
+        <a href="#" data-popup="request-estimate" class="popup-show footer__menu_link">Request Estimate</a>
       </li>
     </ul>
   </nav>
 </footer>
 
-<div class="popup" data-close="true">
+<div class="popup" data-popup="request-estimate" data-close="true">
   <div class="pos-a absolute-center-y popup__circle-bg"></div>
   <span class="popup-close pos-a" data-close="true">Close</span>
   <form action="#" class="form pos-r">
@@ -385,7 +385,26 @@
                accept=".jpg, .png, .docx, .doc, .pdf, .rar, .zip"
                class="pos-r form__input">
       </div>
-      <p class="form__note full-width">Your resume</p>
+      <p class="form__note full-width">We are a design and web development studio that delivers</p>
+    </div>
+
+    <div class="full-width pos-r form__field budget no-text">
+      <label for="popup_budget" class="form__label">Project Budget</label>
+      <input name="popup_budget"
+             type="hidden"
+             value="< 100 $"
+             id="popup_budget"
+             class="form__input">
+      <div class="budget__wrap">
+        <span class="text-center budget__item active">< 100 $</span>
+        <span class="text-center budget__item">100 – 500 $</span>
+        <span class="text-center budget__item">500 – 1 000 $</span>
+        <span class="text-center budget__item">1 000 - 10 000 $</span>
+        <span class="text-center budget__item">10 000 – 50 000 $</span>
+        <span class="text-center budget__item">50 000 - 100 000 $</span>
+        <span class="text-center budget__item">100 000 - 500 000 $</span>
+        <span class="text-center budget__item">> 500 000 $</span>
+      </div>
     </div>
 
     <div class="full-width pos-r form__field checkbox">

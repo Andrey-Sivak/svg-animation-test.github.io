@@ -790,6 +790,11 @@ input[type="number"] {
           -ms-flex-pack: justify;
               justify-content: space-between;
       margin: 10px -5px -26px; }
+      @media (max-width: 767px) {
+        .form__field.budget .budget__wrap {
+          max-width: 305px;
+          margin-left: auto;
+          margin-right: auto; } }
     .form__field.budget .budget__item {
       -webkit-user-select: none;
          -moz-user-select: none;
@@ -814,7 +819,11 @@ input[type="number"] {
           padding-top: 11px;
           padding-bottom: 11px;
           font-size: 10px;
-          line-height: 174.7%; } }
+          line-height: 174.7%;
+          width: 140px;
+          max-width: 170px;
+          margin-left: 0;
+          margin-right: 0; } }
       .form__field.budget .budget__item:hover {
         background-color: rgba(255, 255, 255, 0.4); }
       .form__field.budget .budget__item.active {
@@ -1013,12 +1022,19 @@ input[type="number"] {
     right: calc((100vw - 1362px) / 2);
     margin-left: auto;
     width: 650px; }
+    @media (max-width: 1480px) {
+      .popup .form {
+        right: 35px; } }
     @media (max-width: 767px) {
       .popup .form {
         width: 100%;
         right: unset;
         padding-left: 20px;
-        padding-right: 20px; } }
+        padding-right: 20px;
+        -webkit-transform: unset;
+            -ms-transform: unset;
+                transform: unset;
+        top: 20%; } }
     .popup .form label[for="popup_check"] {
       margin-left: 0;
       margin-top: -10px; }
@@ -1029,6 +1045,9 @@ input[type="number"] {
     font-size: 18px;
     line-height: 17px;
     padding-left: 33px; }
+    @media (max-width: 1480px) {
+      .popup-close {
+        right: 35px; } }
     @media (max-width: 767px) {
       .popup-close {
         right: unset;
@@ -4866,7 +4885,7 @@ input[type="number"] {
     font-weight: 300;
     font-size: 18px;
     line-height: 42px;
-    padding-left: 5px; }
+    padding-left: 25px; }
     @media (max-width: 767px) {
       .services-page .service__vertical-list_item {
         font-size: 10px;
@@ -5057,6 +5076,10 @@ input[type="number"] {
           .projects-page .project__content_item:not(:last-of-type) {
             margin-right: 24px; } }
 
+@media (max-width: 767px) {
+  .careers-page.single .career__img {
+    display: none; } }
+
 .careers-page .careers {
   margin-top: 202px;
   max-width: 1460px; }
@@ -5083,16 +5106,16 @@ input[type="number"] {
     .careers-page .career {
       -ms-flex-wrap: wrap;
           flex-wrap: wrap; } }
-  .careers-page .career:nth-of-type(2) .career__img:before {
+  .careers-page .career.two .career__img:before {
     left: -22.97%;
     bottom: -15.97%; }
-  .careers-page .career:nth-of-type(2) .career__img:after {
+  .careers-page .career.two .career__img:after {
     top: 3.06%;
     left: -19.47%; }
-  .careers-page .career:last-of-type .career__img:before {
+  .careers-page .career.three .career__img:before {
     left: -23.10%;
     bottom: -3.5%; }
-  .careers-page .career:last-of-type .career__img:after {
+  .careers-page .career.three .career__img:after {
     width: 88.4%;
     height: 88.4%;
     -webkit-transform: translateX(-50%);
@@ -5100,10 +5123,10 @@ input[type="number"] {
             transform: translateX(-50%);
     left: 50%;
     top: -13.13%; }
-  .careers-page .career:first-of-type .career__img:before {
+  .careers-page .career.one .career__img:before {
     bottom: 5.7%;
     right: -25.16%; }
-  .careers-page .career:first-of-type .career__img:after {
+  .careers-page .career.one .career__img:after {
     top: -19.91%;
     right: 2.4%; }
   .careers-page .career:hover .career__img_svg {
@@ -5213,15 +5236,13 @@ input[type="number"] {
         border-radius: 50%;
         background-color: rgba(255, 255, 255, 0.7);
         left: 0;
-        top: 50%;
-        -webkit-transform: translateY(-50%);
-            -ms-transform: translateY(-50%);
-                transform: translateY(-50%);
+        top: 19px;
         content: ''; }
         @media (max-width: 767px) {
           .careers-page .career__content_item:before {
             width: 3px;
-            height: 3px; } }
+            height: 3px;
+            top: 9px; } }
       .careers-page .career__content_item:last-of-type {
         margin-bottom: 29px; }
       @media (max-width: 992px) {
@@ -5643,3 +5664,13 @@ body {
   min-height: 100vh;
   background-color: #141314;
   color: #fff; }
+  @media (max-width: 767px) {
+    body:after {
+      opacity: .1;
+      position: absolute;
+      content: '';
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 64px;
+      background-color: rgba(255, 255, 255, 0.2); } }

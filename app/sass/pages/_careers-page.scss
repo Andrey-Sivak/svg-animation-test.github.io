@@ -1,5 +1,15 @@
 .careers-page {
 
+  &.single {
+
+    .career__img {
+
+      @include response-to(small) {
+        display: none;
+      }
+    }
+  }
+
   .careers {
     margin-top: 202px;
     max-width: 1460px;
@@ -27,7 +37,7 @@
       flex-wrap: wrap;
     }
 
-    &:nth-of-type(2) {
+    &.two {
 
       .career__img {
 
@@ -43,7 +53,7 @@
       }
     }
 
-    &:last-of-type {
+    &.three {
 
       .career__img {
 
@@ -62,7 +72,7 @@
       }
     }
 
-    &:first-of-type {
+    &.one {
 
       .career__img {
 
@@ -195,13 +205,13 @@
           border-radius: 50%;
           background-color: rgba(#fff, .7);
           left: 0;
-          top: 50%;
-          transform: translateY(-50%);
+          top: 19px;
           content: '';
 
           @include response-to(small) {
             width: 3px;
             height: 3px;
+            top: 9px;
           }
         }
 
