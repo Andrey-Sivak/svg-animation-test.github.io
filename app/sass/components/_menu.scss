@@ -6,7 +6,7 @@
     position: fixed;
     z-index: -5;
     opacity: 0;
-    background-color: #333;
+    background-color: #141314;
     padding-left: 33px;
     transform: translateY(-100vh);
     top: 0;
@@ -24,6 +24,14 @@
       .menu__item {
         transform: translateX(0);
       }
+    }
+  }
+
+  .popup__circle-bg {
+    display: none;
+
+    @include response-to(small) {
+      display: block;
     }
   }
 

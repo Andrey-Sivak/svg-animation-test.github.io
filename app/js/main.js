@@ -449,17 +449,21 @@ window.addEventListener('load', function () {
 
         const items = [...document.querySelectorAll('.service-animate')];
         const shines = [...document.querySelectorAll('.service-animate-shine')];
+        const sections = function () {
+            if (document.querySelector('section.service')) {
+                return [...document.querySelectorAll('section.service')];
+            }
+        };
         const itemsCoords = {};
 
         items.forEach((item, i) => {
-            item.addEventListener('mouseenter', (e) => {
-
-                item.classList.add('active');
-            });
-
-            item.addEventListener('mouseleave', (e) => {
-                item.classList.remove('active');
-            });
+            if (sections()) {
+                mouseEnterShine(sections()[i]);
+                mouseLeaveShine(sections()[i]);
+            } else {
+                mouseEnterShine(item);
+                mouseLeaveShine(item);
+            }
 
             const rect = item.getBoundingClientRect();
             const itemX = rect.left + item.offsetWidth / 2 + pageXOffset;
@@ -666,4 +670,16 @@ function selectBudget(e) {
         target.classList.add('active');
         budgetInput.value = target.innerHTML;
     }
+}
+
+function mouseEnterShine(el) {
+    el.addEventListener('mouseenter', (e) => {
+        el.classList.add('active');
+    });
+}
+
+function mouseLeaveShine(el) {
+    el.addEventListener('mouseleave', (e) => {
+        el.classList.remove('active');
+    });
 }

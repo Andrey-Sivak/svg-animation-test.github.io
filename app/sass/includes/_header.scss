@@ -57,6 +57,9 @@
 
       &.active {
         background-color: transparent;
+        position: fixed;
+        top: 39px;
+        right: 20px;
 
         &:before {
           transform: rotate(315deg);
