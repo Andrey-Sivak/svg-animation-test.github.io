@@ -5,6 +5,7 @@
   align-items: center;
   transform: translateX(90px);
   margin-bottom: 388px;
+  z-index: 1;
 
   .section__content {
 
@@ -56,6 +57,11 @@
       }
     }
   }
+
+  & + .section__bg {
+    width: 100%;
+    bottom: -533px;
+  }
 }
 
 .third-section {
@@ -93,6 +99,11 @@
       }
     }
   }
+
+  & + .section__bg {
+    right: 0;
+    top: -433px;
+  }
 }
 
 .four-section {
@@ -113,6 +124,12 @@
         margin-right: 129px;
       }
     }
+  }
+
+  & + .section__bg {
+    width: 100%;
+    left: 0;
+    bottom: -240px;
   }
 }
 

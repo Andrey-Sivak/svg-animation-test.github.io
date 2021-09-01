@@ -5614,7 +5614,8 @@ input[type="number"] {
   -webkit-transform: translateX(90px);
       -ms-transform: translateX(90px);
           transform: translateX(90px);
-  margin-bottom: 388px; }
+  margin-bottom: 388px;
+  z-index: 1; }
   .shabba .first-section .section__content .note {
     width: 450px;
     height: 450px;
@@ -5668,6 +5669,9 @@ input[type="number"] {
         right: 0;
         z-index: 2;
         top: -223px; }
+  .shabba .second-section + .section__bg {
+    width: 100%;
+    bottom: -533px; }
 
 .shabba .third-section {
   display: -webkit-box;
@@ -5697,6 +5701,9 @@ input[type="number"] {
         right: 0;
         z-index: 2;
         top: -296px; }
+  .shabba .third-section + .section__bg {
+    right: 0;
+    top: -433px; }
 
 .shabba .four-section {
   margin-bottom: 956px; }
@@ -5712,6 +5719,10 @@ input[type="number"] {
             justify-content: center; }
     .shabba .four-section .section__images img:first-of-type {
       margin-right: 129px; }
+  .shabba .four-section + .section__bg {
+    width: 100%;
+    left: 0;
+    bottom: -240px; }
 
 .shabba .five-section {
   display: -webkit-box;
