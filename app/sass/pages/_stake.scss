@@ -3,6 +3,21 @@
   height: 689px;
 }
 
+.single-project--top-bg {
+
+  @include response-to(huge) {
+    width: 140%;
+  }
+}
+
+.section {
+
+  @include response-to(huge) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
 .first-section {
   max-width: 1413px;
   display: flex;

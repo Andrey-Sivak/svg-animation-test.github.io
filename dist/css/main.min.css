@@ -5758,6 +5758,15 @@ input[type="number"] {
   background: linear-gradient(149.85deg, #131213 -9.11%, #242424 73.42%);
   height: 689px; }
 
+@media (max-width: 1480px) {
+  .stake .single-project--top-bg {
+    width: 140%; } }
+
+@media (max-width: 1480px) {
+  .stake .section {
+    padding-left: 20px;
+    padding-right: 20px; } }
+
 .stake .first-section {
   max-width: 1413px;
   display: -webkit-box;

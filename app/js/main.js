@@ -3,6 +3,8 @@ import * as $ from 'jquery';
 import './jquery.validate.min';
 import './slick.min';
 
+const keys = {37: 1, 38: 1, 39: 1, 40: 1};
+
 const mobileWidth = 767;
 let isMobile = checkWidth();
 
@@ -218,19 +220,22 @@ window.addEventListener('load', function () {
             if (lastScrollTop > processSectionTop - 200 && lastScrollTop < processSectionBottom) {
 
                 if (!isAnimationEnd) {
+                    e.preventDefault();
                     return;
                 }
 
                 const wDelta = currentOffset > lastScrollTop ? 'down' : 'up';
 
-                disableScroll();
-
-                if (wDelta === 'down' && currentAnimation < options.length) {
-                    currentAnimation++;
-                    animate(currentAnimation - 1, wDelta);
-                } else if (wDelta === 'up' && currentAnimation) {
-                    currentAnimation--;
-                    animate(currentAnimation, wDelta);
+                if (window.pageYOffset > processSectionTop) {
+                    if (wDelta === 'down' && currentAnimation < options.length) {
+                        e.preventDefault();
+                        currentAnimation++;
+                        animate(currentAnimation - 1, wDelta);
+                    } else if (wDelta === 'up' && currentAnimation) {
+                        e.preventDefault();
+                        currentAnimation--;
+                        animate(currentAnimation, wDelta);
+                    }
                 }
             }
 
@@ -238,6 +243,8 @@ window.addEventListener('load', function () {
         });
 
         function animate(i, direction) {
+            // disableScroll();
+            document.body.classList.add('no-scrolling');
             isAnimationEnd = false;
             const elem = options[i].textElement;
             const svg = options[i].svgTargetElement;
@@ -249,6 +256,8 @@ window.addEventListener('load', function () {
 
                 svg.classList.add('unanimate');
 
+
+                console.log(i === 3 || i === 4);
             } else {
                 svg.classList.add('animate');
 
@@ -304,7 +313,8 @@ window.addEventListener('load', function () {
                     }
                 }
 
-                enableScroll();
+                // enableScroll();
+                document.body.classList.remove('no-scrolling');
             }, options[i].animationDuration)
         }
     })();
@@ -621,6 +631,7 @@ function checkEmpty(elem) {
 function switchFileBtn(list) {
     if (!list.children.length) {
         const btn = list.parentElement.querySelector('input[type="file"]');
+        console.log(btn);
 
         if (btn.classList.contains('add-more')) {
             btn.classList.remove('add-more');
@@ -687,18 +698,34 @@ function mouseLeaveShine(el) {
     });
 }
 
-function prevent(e) {
-    e.preventDefault();
+function preventDefault(e) {
+    e = e || window.event;
+    if (e.preventDefault)
+        e.preventDefault();
+    e.returnValue = false;
+}
+
+function preventDefaultForScrollKeys(e) {
+    if (keys[e.keyCode]) {
+        preventDefault(e);
+        return false;
+    }
 }
 
 function disableScroll() {
-    window.addEventListener('DOMMouseScroll', prevent, { passive: false });
-    window.addEventListener('wheel', prevent, { passive: false });
-    window.addEventListener('touchmove', prevent, { passive: false });
+    if (window.addEventListener) // older FF
+        window.addEventListener('DOMMouseScroll', preventDefault, false);
+    window.onwheel = preventDefault; // modern standard
+    window.onmousewheel = document.onmousewheel = preventDefault; // older browsers, IE
+    window.ontouchmove  = preventDefault; // mobile
+    document.onkeydown  = preventDefaultForScrollKeys;
 }
 
 function enableScroll() {
-    window.removeEventListener('DOMMouseScroll', prevent, false);
-    window.removeEventListener('wheel', prevent, false);
-    window.removeEventListener('touchmove', prevent, false);
+    if (window.removeEventListener)
+        window.removeEventListener('DOMMouseScroll', preventDefault, false);
+    window.onmousewheel = document.onmousewheel = null;
+    window.onwheel = null;
+    window.ontouchmove = null;
+    document.onkeydown = null;
 }
