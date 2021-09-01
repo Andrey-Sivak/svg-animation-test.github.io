@@ -5753,6 +5753,91 @@ input[type="number"] {
         z-index: 2;
         top: -455px; }
 
+.stake .single-project--bottom-bg {
+  background: -o-linear-gradient(300.15deg, #131213 -9.11%, #242424 73.42%);
+  background: linear-gradient(149.85deg, #131213 -9.11%, #242424 73.42%);
+  height: 689px; }
+
+.stake .first-section {
+  max-width: 1413px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: -60px;
+  margin-bottom: 189px; }
+  .stake .first-section .section__images {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2; }
+  .stake .first-section .section__content {
+    max-width: 577px;
+    color: #000;
+    margin-right: 160px; }
+
+.stake .second-section {
+  max-width: 1413px;
+  margin-bottom: 142px; }
+  .stake .second-section .section__images {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
+    .stake .second-section .section__images .left {
+      margin-right: 93px; }
+  .stake .second-section .section__content {
+    margin-bottom: 90px; }
+  .stake .second-section + .section__bg {
+    top: -464px;
+    left: 0; }
+
+.stake .third-section {
+  max-width: 1413px;
+  display: block;
+  margin-bottom: 116px;
+  margin-right: unset;
+  height: unset; }
+  .stake .third-section .section__images {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
+    .stake .third-section .section__images .left {
+      margin-right: 74px; }
+  .stake .third-section .section__content {
+    margin-top: 68px; }
+
+.stake .four-section {
+  max-width: 1413px;
+  margin-bottom: 116px;
+  margin-right: unset; }
+  .stake .four-section .section__images {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
+    .stake .four-section .section__images .left {
+      margin-right: 81px; }
+  .stake .four-section .section__content {
+    margin-bottom: 68px; }
+  .stake .four-section + .section__bg {
+    right: 0;
+    bottom: -792px; }
+
+.stake .five-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 1413px;
+  margin-bottom: 107px;
+  margin-right: unset;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end; }
+  .stake .five-section .section__content {
+    margin-right: 136px;
+    max-width: 494px;
+    margin-bottom: 181px; }
+
 .single-projects-page .single-project__top {
   margin-top: 61px;
   max-width: 1413px; }

@@ -168,7 +168,8 @@ window.addEventListener('load', function () {
         const svg = document.getElementById('process-svg');
         const processTextItems = [...processSection.querySelectorAll('.third-section__item')];
 
-        const processSectionTop = processSection.getBoundingClientRect().top - 100;
+        const processSectionTop = processSection.offsetTop;
+        const processSectionBottom = processSection.offsetTop + processSection.offsetHeight;
 
         const options = [
             {
@@ -205,28 +206,35 @@ window.addEventListener('load', function () {
 
         let currentAnimation = 0;
         let isAnimationEnd = true;
+        let lastScrollTop = window.pageYOffset || window.scrollTop;
 
+        if (lastScrollTop > processSectionTop - 200 && lastScrollTop < processSectionBottom) {
 
-        processSection.addEventListener('wheel', function(e) {
+        }
 
-            if (!isAnimationEnd) {
-                e.preventDefault();
-                return;
-            }
+        window.addEventListener('scroll', function(e) {
+            const currentOffset = window.pageYOffset || document.documentElement.scrollTop;
 
-            let wDelta = e.wheelDelta < 0 ? 'down' : 'up';
+            if (lastScrollTop > processSectionTop - 200 && lastScrollTop < processSectionBottom) {
 
-            if (window.pageYOffset > processSectionTop) {
+                if (!isAnimationEnd) {
+                    return;
+                }
+
+                const wDelta = currentOffset > lastScrollTop ? 'down' : 'up';
+
+                disableScroll();
+
                 if (wDelta === 'down' && currentAnimation < options.length) {
-                    e.preventDefault();
                     currentAnimation++;
                     animate(currentAnimation - 1, wDelta);
                 } else if (wDelta === 'up' && currentAnimation) {
-                    e.preventDefault();
                     currentAnimation--;
                     animate(currentAnimation, wDelta);
                 }
             }
+
+            lastScrollTop = currentOffset;
         });
 
         function animate(i, direction) {
@@ -241,8 +249,6 @@ window.addEventListener('load', function () {
 
                 svg.classList.add('unanimate');
 
-
-                console.log(i === 3 || i === 4);
             } else {
                 svg.classList.add('animate');
 
@@ -260,8 +266,6 @@ window.addEventListener('load', function () {
 
                 elem.classList.add('show');
             }
-
-            document.body.classList.add('no-scrolling');
 
             setTimeout(() => {
                 isAnimationEnd = true;
@@ -300,7 +304,7 @@ window.addEventListener('load', function () {
                     }
                 }
 
-                document.body.classList.remove('no-scrolling');
+                enableScroll();
             }, options[i].animationDuration)
         }
     })();
@@ -617,7 +621,6 @@ function checkEmpty(elem) {
 function switchFileBtn(list) {
     if (!list.children.length) {
         const btn = list.parentElement.querySelector('input[type="file"]');
-        console.log(btn);
 
         if (btn.classList.contains('add-more')) {
             btn.classList.remove('add-more');
@@ -682,4 +685,20 @@ function mouseLeaveShine(el) {
     el.addEventListener('mouseleave', (e) => {
         el.classList.remove('active');
     });
+}
+
+function prevent(e) {
+    e.preventDefault();
+}
+
+function disableScroll() {
+    window.addEventListener('DOMMouseScroll', prevent, { passive: false });
+    window.addEventListener('wheel', prevent, { passive: false });
+    window.addEventListener('touchmove', prevent, { passive: false });
+}
+
+function enableScroll() {
+    window.removeEventListener('DOMMouseScroll', prevent, false);
+    window.removeEventListener('wheel', prevent, false);
+    window.removeEventListener('touchmove', prevent, false);
 }
