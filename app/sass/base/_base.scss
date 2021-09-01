@@ -82,12 +82,18 @@
   @include response-to(small) {
     font-weight: 500;
     font-size: 11px;
+    line-height: 206%;
   }
 }
 
 .text36 {
   font-size: 36px;
   line-height: 55px;
+
+  @include response-to(small) {
+    font-size: 20px;
+    line-height: 148.7%;
+  }
 }
 
 .font300 {
@@ -96,6 +102,8 @@
 
 .bold {
   font-weight: bold;
+  font-size: 11px;
+  line-height: 204.2%;
 }
 
 .caption-block {

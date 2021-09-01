@@ -72,6 +72,10 @@
       font-size: 144px;
       line-height: 118px;
 
+      @include response-to(medium) {
+        font-size: 100px;
+      }
+
       @include response-to(small) {
         text-align: center;
         font-size: 36px;
