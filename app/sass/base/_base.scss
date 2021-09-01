@@ -74,6 +74,15 @@
 .text24 {
   font-size: 24px;
   line-height: 228.2%;
+
+  @include response-to(medium) {
+    font-size: 18px;
+  }
+
+  @include response-to(small) {
+    font-weight: 500;
+    font-size: 11px;
+  }
 }
 
 .text36 {

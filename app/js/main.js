@@ -243,8 +243,7 @@ window.addEventListener('load', function () {
         });
 
         function animate(i, direction) {
-            // disableScroll();
-            document.body.classList.add('no-scrolling');
+            disableScroll();
             isAnimationEnd = false;
             const elem = options[i].textElement;
             const svg = options[i].svgTargetElement;
@@ -313,8 +312,7 @@ window.addEventListener('load', function () {
                     }
                 }
 
-                // enableScroll();
-                document.body.classList.remove('no-scrolling');
+                enableScroll();
             }, options[i].animationDuration)
         }
     })();
