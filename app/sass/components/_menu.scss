@@ -92,10 +92,18 @@
         display: block;
       }
     }
+
+    &.mob {
+      display: none;
+
+      @include response-to(small) {
+        display: block;
+      }
+    }
   }
 }
 
-@for $i from 1 through 5 {
+@for $i from 1 through 6 {
   .menu__wrap .menu__item:nth-child(#{$i}) {
     transition-delay: ( $i * .1s ) + 0.15s;
   }
