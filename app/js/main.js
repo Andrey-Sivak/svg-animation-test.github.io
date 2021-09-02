@@ -3,8 +3,6 @@ import * as $ from 'jquery';
 import './jquery.validate.min';
 import './slick.min';
 
-const keys = {37: 1, 38: 1, 39: 1, 40: 1};
-
 const mobileWidth = 767;
 let isMobile = checkWidth();
 
@@ -86,7 +84,7 @@ window.addEventListener('load', function () {
 
     (function firstSectionAnimation() {
         if (!document.getElementById('first-section-svg')) {
-           return;
+            return;
         }
 
         const options = {
@@ -130,11 +128,11 @@ window.addEventListener('load', function () {
                         el.parentElement.classList.add('click');
 
                         setTimeout(() => {
-                                if (isDisplay && el.parentElement.classList.contains('unclick')) {
-                                    el.parentElement.classList.remove('click', 'unclick');
-                                } else if (!isDisplay) {
-                                    el.parentElement.classList.remove('click');
-                                }
+                            if (isDisplay && el.parentElement.classList.contains('unclick')) {
+                                el.parentElement.classList.remove('click', 'unclick');
+                            } else if (!isDisplay) {
+                                el.parentElement.classList.remove('click');
+                            }
                             proxy.isAnimationEnd = true;
                             el.addEventListener('mouseover', hoverHandler);
                         }, target.animationDuration);
@@ -170,8 +168,7 @@ window.addEventListener('load', function () {
         const svg = document.getElementById('process-svg');
         const processTextItems = [...processSection.querySelectorAll('.third-section__item')];
 
-        const processSectionTop = processSection.offsetTop;
-        const processSectionBottom = processSection.offsetTop + processSection.offsetHeight;
+        const processSectionTop = processSection.getBoundingClientRect().top - 100;
 
         const options = [
             {
@@ -208,42 +205,31 @@ window.addEventListener('load', function () {
 
         let currentAnimation = 0;
         let isAnimationEnd = true;
-        let lastScrollTop = window.pageYOffset || window.scrollTop;
 
-        if (lastScrollTop > processSectionTop - 200 && lastScrollTop < processSectionBottom) {
 
-        }
+        processSection.addEventListener('wheel', function(e) {
 
-        window.addEventListener('scroll', function(e) {
-            const currentOffset = window.pageYOffset || document.documentElement.scrollTop;
-
-            if (lastScrollTop > processSectionTop - 200 && lastScrollTop < processSectionBottom) {
-
-                if (!isAnimationEnd) {
-                    e.preventDefault();
-                    return;
-                }
-
-                const wDelta = currentOffset > lastScrollTop ? 'down' : 'up';
-
-                if (window.pageYOffset > processSectionTop) {
-                    if (wDelta === 'down' && currentAnimation < options.length) {
-                        e.preventDefault();
-                        currentAnimation++;
-                        animate(currentAnimation - 1, wDelta);
-                    } else if (wDelta === 'up' && currentAnimation) {
-                        e.preventDefault();
-                        currentAnimation--;
-                        animate(currentAnimation, wDelta);
-                    }
-                }
+            if (!isAnimationEnd) {
+                e.preventDefault();
+                return;
             }
 
-            lastScrollTop = currentOffset;
+            let wDelta = e.wheelDelta < 0 ? 'down' : 'up';
+
+            if (window.pageYOffset > processSectionTop) {
+                if (wDelta === 'down' && currentAnimation < options.length) {
+                    e.preventDefault();
+                    currentAnimation++;
+                    animate(currentAnimation - 1, wDelta);
+                } else if (wDelta === 'up' && currentAnimation) {
+                    e.preventDefault();
+                    currentAnimation--;
+                    animate(currentAnimation, wDelta);
+                }
+            }
         });
 
         function animate(i, direction) {
-            disableScroll();
             isAnimationEnd = false;
             const elem = options[i].textElement;
             const svg = options[i].svgTargetElement;
@@ -274,6 +260,8 @@ window.addEventListener('load', function () {
 
                 elem.classList.add('show');
             }
+
+            document.body.classList.add('no-scrolling');
 
             setTimeout(() => {
                 isAnimationEnd = true;
@@ -312,7 +300,7 @@ window.addEventListener('load', function () {
                     }
                 }
 
-                enableScroll();
+                document.body.classList.remove('no-scrolling');
             }, options[i].animationDuration)
         }
     })();
@@ -453,7 +441,7 @@ window.addEventListener('load', function () {
         });
 
     })();
-    
+
     (function servicesAnimation() {
         if (!document.querySelector('.service-animate') || isMobile) {
             return;
@@ -461,27 +449,23 @@ window.addEventListener('load', function () {
 
         const items = [...document.querySelectorAll('.service-animate')];
         const shines = [...document.querySelectorAll('.service-animate-shine')];
-        const sections = function () {
-            if (document.querySelector('section.service')) {
-                return [...document.querySelectorAll('section.service')];
-            }
-        };
         const itemsCoords = {};
 
         items.forEach((item, i) => {
-            if (sections()) {
-                mouseEnterShine(sections()[i]);
-                mouseLeaveShine(sections()[i]);
-            } else {
-                mouseEnterShine(item);
-                mouseLeaveShine(item);
-            }
+            item.addEventListener('mouseenter', (e) => {
+
+                item.classList.add('active');
+            });
+
+            item.addEventListener('mouseleave', (e) => {
+                item.classList.remove('active');
+            });
 
             const rect = item.getBoundingClientRect();
             const itemX = rect.left + item.offsetWidth / 2 + pageXOffset;
             const itemY = rect.top + item.offsetHeight / 2 + pageYOffset;
 
-                Object.defineProperty(itemsCoords, i, {
+            Object.defineProperty(itemsCoords, i, {
                 value: {
                     x: itemX,
                     y: itemY,
@@ -589,8 +573,8 @@ function removeFile(elem) {
 
 function createFileItem(file, filesList, input) {
     const inputTypeFileCount = input.parentElement
-                                    .querySelectorAll('input[type="file"]')
-                                    .length;
+        .querySelectorAll('input[type="file"]')
+        .length;
     const fileId = input.getAttribute('id');
     const filteredFileId = fileId.replace(/[0-9]/g, '');
 
@@ -643,8 +627,8 @@ function cloneInput(input) {
 
     const newInput = input.cloneNode();
     const inputTypeFileCount = input.parentElement
-                                    .querySelectorAll('input[type="file"]')
-                                    .length + 1;
+        .querySelectorAll('input[type="file"]')
+        .length + 1;
     newInput.setAttribute('id', `${filteredFileId}${inputTypeFileCount}`);
     newInput.setAttribute('name', `${filteredFileId}${inputTypeFileCount}`);
     newInput.classList.add('add-more');
@@ -682,48 +666,4 @@ function selectBudget(e) {
         target.classList.add('active');
         budgetInput.value = target.innerHTML;
     }
-}
-
-function mouseEnterShine(el) {
-    el.addEventListener('mouseenter', (e) => {
-        el.classList.add('active');
-    });
-}
-
-function mouseLeaveShine(el) {
-    el.addEventListener('mouseleave', (e) => {
-        el.classList.remove('active');
-    });
-}
-
-function preventDefault(e) {
-    e = e || window.event;
-    if (e.preventDefault)
-        e.preventDefault();
-    e.returnValue = false;
-}
-
-function preventDefaultForScrollKeys(e) {
-    if (keys[e.keyCode]) {
-        preventDefault(e);
-        return false;
-    }
-}
-
-function disableScroll() {
-    if (window.addEventListener) // older FF
-        window.addEventListener('DOMMouseScroll', preventDefault, false);
-    window.onwheel = preventDefault; // modern standard
-    window.onmousewheel = document.onmousewheel = preventDefault; // older browsers, IE
-    window.ontouchmove  = preventDefault; // mobile
-    document.onkeydown  = preventDefaultForScrollKeys;
-}
-
-function enableScroll() {
-    if (window.removeEventListener)
-        window.removeEventListener('DOMMouseScroll', preventDefault, false);
-    window.onmousewheel = document.onmousewheel = null;
-    window.onwheel = null;
-    window.ontouchmove = null;
-    document.onkeydown = null;
 }
