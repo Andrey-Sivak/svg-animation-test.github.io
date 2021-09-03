@@ -348,8 +348,16 @@ window.addEventListener('load', function () {
             }
         });
 
+
+
         popups.forEach(p => {
             p.addEventListener('click', hidePopup);
+
+            setTimeout(() => {
+                if (p.classList.contains('hide')) {
+                    p.classList.remove('hide');
+                }
+            }, 1000)
         });
 
         popupBtns.forEach(p => {

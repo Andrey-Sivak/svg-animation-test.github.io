@@ -22,6 +22,10 @@
     opacity: 1;
   }
 
+  &.hide {
+    display: none;
+  }
+
   & .form {
     right: calc((100vw - 1362px) / 2);
     margin-left: auto;

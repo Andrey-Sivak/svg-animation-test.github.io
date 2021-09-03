@@ -1110,6 +1110,8 @@ input[type="number"] {
     position: fixed;
     z-index: 1000;
     opacity: 1; }
+  .popup.hide {
+    display: none; }
   .popup .form {
     right: calc((100vw - 1362px) / 2);
     margin-left: auto;
