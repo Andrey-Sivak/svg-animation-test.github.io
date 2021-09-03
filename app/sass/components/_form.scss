@@ -39,6 +39,7 @@
         @include response-to(small) {
           margin-bottom: 6px;
           text-align: left;
+          width: 70px;
         }
       }
 
@@ -56,6 +57,7 @@
         @include response-to(small) {
           font-size: 11px;
           line-height: 174.7%;
+          background-image: url('../img/download-arrow-mob.svg');
         }
 
         &.hide {
@@ -72,6 +74,10 @@
           justify-content: space-between;
           align-items: flex-end;
           margin-bottom: 14px;
+
+          @include response-to(small) {
+            width: calc(100% - 93px);
+          }
 
           .files {
             display: flex;
@@ -125,6 +131,12 @@
           opacity: .4;
           cursor: pointer;
           left: 16px;
+
+          @include response-to(small) {
+            font-size: 11px;
+            line-height: 174.7%;
+            left: 11px;
+          }
         }
 
         &.add-more {

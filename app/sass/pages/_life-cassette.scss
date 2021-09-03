@@ -225,9 +225,9 @@
   justify-content: space-between;
   align-items: stretch;
   margin-top: 228px;
+  height: unset;
   max-width: 1413px;
   padding: 20px 0 115px;
-  margin-bottom: 221px;
 
   @include response-to(huge) {
     padding-left: 15px;
@@ -398,6 +398,7 @@
   }
 
   .section__images {
+    padding-right: 123px;
     position: relative;
     z-index: 1;
 
@@ -438,7 +439,7 @@
           z-index: 2;
           position: absolute;
           bottom: -218px;
-          right: -63px;
+          right: 61px;
 
           @include response-to(small) {
             right: 0;
@@ -475,7 +476,7 @@
   }
 
   & + .section__bg {
-    left: 0;
+    right: -40px;
     top: -303px;
   }
 }

@@ -108,6 +108,7 @@
     }
 
     &__content {
+      z-index: 2;
 
       @include response-to(small) {
         width: 100%;

@@ -357,7 +357,7 @@ window.addEventListener('load', function () {
                 if (p.classList.contains('hide')) {
                     p.classList.remove('hide');
                 }
-            }, 1000)
+            }, 2000)
         });
 
         popupBtns.forEach(p => {

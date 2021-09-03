@@ -9,6 +9,10 @@
     opacity: .5;
     right: -142px;
     @include flex-center();
+    animation-name: circlesRotate;
+    animation-duration: 150s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
 
     @include response-to(huge) {
       width: 100vw;
@@ -44,4 +48,14 @@
 
   @import "../components/home-first";
   @import "../components/home-second";
+}
+
+@keyframes circlesRotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }

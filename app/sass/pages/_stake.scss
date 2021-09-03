@@ -1,4 +1,5 @@
 .single-project--bottom-bg {
+  width: 100%;
   background: linear-gradient(149.85deg, #131213 -9.11%, #242424 73.42%);
   height: 689px;
 
@@ -8,10 +9,6 @@
 }
 
 .single-project--top-bg {
-
-  @include response-to(huge) {
-    width: 140%;
-  }
 
   @include response-to(small) {
     display: none;
@@ -64,7 +61,6 @@
 .first-section {
   max-width: 1413px;
   display: flex;
-  align-items: center;
   margin-top: -60px;
   margin-bottom: 189px;
 
@@ -81,9 +77,26 @@
   }
 
   .section__content {
+    padding-top: 322px;
     max-width: 577px;
     color: #000;
     margin-right: 160px;
+
+    @include response-to(large) {
+      padding-top: 222px;
+    }
+
+    @include response-to(medium) {
+      padding-top: 122px;
+    }
+
+    @include response-to(small) {
+      padding-top: 0;
+    }
+
+    .text24 {
+      font-weight: 500;
+    }
 
     @include response-to(small) {
       margin: 45px auto 0;
@@ -138,11 +151,19 @@
   }
 
   & + .section__bg {
-    top: -464px;
+    top: -620px;
     left: 0;
+
+    @media(max-width: 1800px) {
+      width: 1650px;
+    }
 
     @include response-to(huge) {
       width: 100%;
+    }
+
+    @include response-to(large) {
+      top: -400px;
     }
 
     @include response-to(medium) {
@@ -245,7 +266,7 @@
 
   & + .section__bg {
     right: 0;
-    bottom: -792px;
+    bottom: -784px;
 
     @include response-to(huge) {
       width: 100%;
