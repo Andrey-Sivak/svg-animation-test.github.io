@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="./dist/css/main.min.css">
   <title>Contact us</title>
 </head>
-<body>
+<body class="contact-page">
 
 <div class="loader active">
   <div class="loadingio-spinner-spinner-rl7w6qbl47d"><div class="ldio-4khtpk1mo8v">
@@ -102,7 +102,7 @@
          alt="img">
   </a>
   <nav class="full-width menu pos-r">
-    <div class="pos-a absolute-center-y popup__circle-bg"></div>
+    <div class="pos-a popup__circle-bg"></div>
     <ul class="menu__wrap">
       <li class="menu__item pos-r mob">
         <a href="./index.html" class="menu__item_link hover pos-a">Main</a>
@@ -144,7 +144,7 @@
     <div class="pos-a absolute-center-y contact-section__circle-bg"></div>
     <div class="pos-r contact-section__block">
       <h2 class="section-caption">Contact us</h2>
-      <p class="contact-section__block_email">hi@appyclick.com</p>
+      <p class="contact-section__block_email"><a href="mailto:hi@appyclick.com">hi@appyclick.com</a></p>
       <p class="contact-section__block_text">We are a design and web development studio that delivers superlative work for</p>
     </div>
     <div class="contact-section__block">
@@ -229,12 +229,14 @@
 
 <footer class="full-width mx-auto pos-r footer">
   <div class="footer__left">
-    <img src="./dist/img/footer-logo.webp"
-         loadind="lazy"
-         alt="img"
-         class="footer__left_img"
-         width="110"
-         height="22">
+    <a href="./index.html">
+      <img src="./dist/img/footer-logo.png"
+           loadind="lazy"
+           alt="img"
+           class="footer__left_img"
+           width="110"
+           height="22">
+    </a>
     <span class="footer__left_year">&copy; 2021</span>
   </div>
 
@@ -264,7 +266,7 @@
 </footer>
 
 <div class="popup" data-popup="request-estimate" data-close="true">
-  <div class="pos-a absolute-center-y popup__circle-bg"></div>
+  <div class="pos-a popup__circle-bg"></div>
   <span class="popup-close pos-a" data-close="true">Close</span>
   <form action="#" class="form pos-r">
 

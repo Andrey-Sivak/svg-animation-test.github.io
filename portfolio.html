@@ -102,7 +102,7 @@
          alt="img">
   </a>
   <nav class="full-width menu pos-r">
-    <div class="pos-a absolute-center-y popup__circle-bg"></div>
+    <div class="pos-a popup__circle-bg"></div>
     <ul class="menu__wrap">
       <li class="menu__item pos-r mob">
         <a href="./index.html" class="menu__item_link hover pos-a">Main</a>
@@ -154,7 +154,7 @@
   </div>
 
   <section class="project mx-auto">
-    <a href="./life-cassette.html" class="project__img">
+    <a href="./life-cassette.html" class="project__img pos-r">
       <img src="./dist/img/portfolio1.png"
            width="557"
            height="557"
@@ -172,8 +172,11 @@
     </div>
   </section>
 
-  <section class="project mx-auto">
-    <a href="./stake.html" class="project__img">
+  <section class="project mx-auto pos-r">
+    <svg width="1920" height="379" viewBox="0 0 1920 379" fill="none" class="pos-a absolute-center project__bg-line">
+      <path d="M-222 106.702C-166 6.53556 380.5 -98.2988 713.5 178.7C957.682 381.818 1502 552.202 1936.5 37.7028" stroke="white" stroke-width="2" stroke-dasharray="6 6"/>
+    </svg>
+    <a href="./stake.html" class="project__img pos-r">
       <img src="./dist/img/portfolio2.png"
            width="557"
            height="557"
@@ -193,7 +196,7 @@
   </section>
 
   <section class="project mx-auto">
-    <a href="./shabba.html" class="project__img">
+    <a href="./shabba.html" class="project__img pos-r">
       <img src="./dist/img/portfolio3.png"
            width="557"
            height="557"
@@ -215,12 +218,14 @@
 
 <footer class="full-width mx-auto pos-r footer">
   <div class="footer__left">
-    <img src="./dist/img/footer-logo.webp"
-         loadind="lazy"
-         alt="img"
-         class="footer__left_img"
-         width="110"
-         height="22">
+    <a href="./index.html">
+      <img src="./dist/img/footer-logo.png"
+           loadind="lazy"
+           alt="img"
+           class="footer__left_img"
+           width="110"
+           height="22">
+    </a>
     <span class="footer__left_year">&copy; 2021</span>
   </div>
 
@@ -250,7 +255,7 @@
 </footer>
 
 <div class="popup" data-popup="request-estimate" data-close="true">
-  <div class="pos-a absolute-center-y popup__circle-bg"></div>
+  <div class="pos-a popup__circle-bg"></div>
   <span class="popup-close pos-a" data-close="true">Close</span>
   <form action="#" class="form pos-r">
 

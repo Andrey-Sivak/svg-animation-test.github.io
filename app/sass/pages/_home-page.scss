@@ -6,6 +6,7 @@
     width: $radius * 2;
     height: $radius * 2;
     top: -475px;
+    opacity: .5;
     right: -142px;
     @include flex-center();
 

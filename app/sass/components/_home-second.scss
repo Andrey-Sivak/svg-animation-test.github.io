@@ -16,7 +16,7 @@
 
   &__bg {
     z-index: -1;
-    opacity: 0.2;
+    opacity: 0.1;
 
     @include response-to(huge) {
       width: 100%;

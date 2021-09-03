@@ -159,6 +159,27 @@ window.addEventListener('load', function () {
         }
     })();
 
+    (function copyEmail() {
+        if (!document.querySelector(".contact-section__block_email")) {
+            return;
+        }
+
+        document.querySelector(".contact-section__block_email").addEventListener("click", copy);
+
+        function copy(e) {
+            e.preventDefault();
+            const target = document.querySelector(".contact-section__block_email");
+            const copyText = document.querySelector(".contact-section__block_email > a");
+            const promise = navigator.clipboard.writeText(copyText.innerHTML);
+
+            target.classList.add('active');
+
+            setTimeout(() => {
+                target.classList.remove('active');
+            }, 2000);
+        }
+    })();
+
     (function processAnimation() {
         if (!document.getElementById('process-svg')) {
             return;

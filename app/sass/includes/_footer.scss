@@ -25,6 +25,7 @@
     }
 
     &_img {
+      display: block;
 
       @include response-to(small) {
         width: 81px;

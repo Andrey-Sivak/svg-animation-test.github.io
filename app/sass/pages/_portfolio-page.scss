@@ -22,6 +22,34 @@
     &:first-of-type {
       margin-top: 153px;
 
+      .project__img {
+
+        &:before,
+        &:after {
+          position: absolute;
+          content: '';
+          border-radius: 50%;
+          border: 2px dashed rgba(#fff, .1);
+          box-sizing: border-box;
+          z-index: -1;
+          display: block;
+        }
+
+        &:after {
+          width: 44.52%;
+          height: 44.52%;
+          top: 13px;
+          left: -33px;
+        }
+
+        &:before {
+          width: 77.37%;
+          height: 77.37%;
+          left: -155px;
+          bottom: 37px;
+        }
+      }
+
       @include response-to(small) {
         margin-top: 97px;
       }
@@ -34,12 +62,16 @@
       }
     }
 
+    &__bg-line {
+      opacity: .1;
+    }
+
     &__img {
       margin-right: 117px;
       width: 557px;
       height: 557px;
       border-radius: 50%;
-      overflow: hidden;
+      //overflow: hidden;
       @include flex-center();
 
       @include response-to(huge) {

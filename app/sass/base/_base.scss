@@ -102,8 +102,11 @@
 
 .bold {
   font-weight: bold;
-  font-size: 11px;
   line-height: 204.2%;
+
+  @include response-to(small) {
+    font-size: 11px;
+  }
 }
 
 .caption-block {
