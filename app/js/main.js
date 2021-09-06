@@ -328,28 +328,15 @@ window.addEventListener('load', function () {
             const svg = options[i].svgTargetElement;
 
             if (!isMobile) {
-                /*if (i === 0 && direction === 'down'
-                    || i === 5 && direction === 'up') {
-                    window.scrollTo({
-                        left: 0,
-                        top: processSectionTop,
-                        behavior: "smooth",
-                    })
-                }*/
-
+                console.log(processSectionTop, window.pageYOffset);
+                window.scrollTo({
+                    left: 0,
+                    top: processSectionTop,
+                    behavior: "smooth",
+                });
             }
 
             if (direction === 'up') {
-                if (!isMobile) {
-
-                    if (window.pageYOffset !== processSectionTop) {
-                        window.scrollTo({
-                            left: 0,
-                            top: processSectionTop,
-                            behavior: "smooth",
-                        })
-                    }
-                }
 
                 if (svg.classList.contains('hide')) {
                     svg.classList.remove('hide');
@@ -358,16 +345,6 @@ window.addEventListener('load', function () {
                 svg.classList.add('unanimate');
 
             } else {
-                if (!isMobile) {
-
-                    if (window.pageYOffset !== processSectionTop) {
-                        window.scrollTo({
-                            left: 0,
-                            top: processSectionTop,
-                            behavior: "smooth",
-                        })
-                    }
-                }
 
                 svg.classList.add('animate');
 
