@@ -50,6 +50,36 @@
     @include response-to(large) {
       margin-top: 70px;
     }
+
+    @include response-to(small) {
+      margin-top: 112px;
+    }
+
+    .slick-dots {
+      bottom: unset;
+      top: -70px;
+      max-width: 200px;
+      border-radius: 9px;
+      border: 1px solid rgba(#fff, .3);
+      height: 3px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      li {
+        width: 33.33%;
+        display: block;
+        height: 1px;
+        background: transparent;
+        opacity: 0.3;
+        border-radius: 9px;
+        margin: 0;
+
+        &.slick-active {
+          background: #fff;
+        }
+      }
+    }
   }
 
   &__item {

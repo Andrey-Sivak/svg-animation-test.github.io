@@ -4725,6 +4725,35 @@ input[type="number"] {
     @media (max-width: 1275px) {
       .home-page .second-section__items {
         margin-top: 70px; } }
+    @media (max-width: 767px) {
+      .home-page .second-section__items {
+        margin-top: 112px; } }
+    .home-page .second-section__items .slick-dots {
+      bottom: unset;
+      top: -70px;
+      max-width: 200px;
+      border-radius: 9px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      height: 3px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center; }
+      .home-page .second-section__items .slick-dots li {
+        width: 33.33%;
+        display: block;
+        height: 1px;
+        background: transparent;
+        opacity: 0.3;
+        border-radius: 9px;
+        margin: 0; }
+        .home-page .second-section__items .slick-dots li.slick-active {
+          background: #fff; }
   .home-page .second-section__item {
     width: 277px; }
     @media (max-width: 1480px) {
