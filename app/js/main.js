@@ -189,7 +189,11 @@ window.addEventListener('load', function () {
         const svg = document.getElementById('process-svg');
         const processTextItems = [...processSection.querySelectorAll('.third-section__item')];
 
-        const processSectionTop = processSection.getBoundingClientRect().top - 100;
+        let processSectionTop = processSection.offsetTop;
+
+        if (document.querySelector('.process-page')) {
+            processSectionTop = 170;
+        }
 
         const options = [
             {
@@ -227,17 +231,16 @@ window.addEventListener('load', function () {
         let currentAnimation = 0;
         let isAnimationEnd = true;
 
+        if (!isMobile) {
+            processSection.addEventListener('wheel', function(e) {
 
-        processSection.addEventListener('wheel', function(e) {
+                if (!isAnimationEnd) {
+                    e.preventDefault();
+                    return;
+                }
 
-            if (!isAnimationEnd) {
-                e.preventDefault();
-                return;
-            }
+                let wDelta = e.wheelDelta < 0 ? 'down' : 'up';
 
-            let wDelta = e.wheelDelta < 0 ? 'down' : 'up';
-
-            if (window.pageYOffset > processSectionTop) {
                 if (wDelta === 'down' && currentAnimation < options.length) {
                     e.preventDefault();
                     currentAnimation++;
@@ -247,13 +250,50 @@ window.addEventListener('load', function () {
                     currentAnimation--;
                     animate(currentAnimation, wDelta);
                 }
+            });
+            return;
+        }
+
+        const svgItems = [...document.querySelectorAll('.process-svg-item')];
+
+        setInterval(() => {
+            if (!isAnimationEnd) {
+                return;
             }
-        });
+
+            if (currentAnimation < options.length) {
+                currentAnimation++;
+                animate(currentAnimation - 1, 'down');
+            } else {
+                processTextItems.forEach(p => {
+                   if (p.classList.contains('show')) {
+                       p.classList.remove('show');
+                   }
+                });
+
+                svgItems.forEach(s => {
+                    s.classList = ['process-svg-item'];
+                });
+
+                currentAnimation = 0;
+            }
+        }, 1000);
 
         function animate(i, direction) {
             isAnimationEnd = false;
             const elem = options[i].textElement;
             const svg = options[i].svgTargetElement;
+
+            if (!isMobile) {
+                if (i === 0 && direction === 'down'
+                    || i === 5 && direction === 'up') {
+                    window.scrollTo({
+                        left: 0,
+                        top: processSectionTop,
+                        behavior: "smooth",
+                    })
+                }
+            }
 
             if (direction === 'up') {
                 if (svg.classList.contains('hide')) {
@@ -262,8 +302,6 @@ window.addEventListener('load', function () {
 
                 svg.classList.add('unanimate');
 
-
-                console.log(i === 3 || i === 4);
             } else {
                 svg.classList.add('animate');
 
@@ -642,7 +680,6 @@ function checkEmpty(elem) {
 function switchFileBtn(list) {
     if (!list.children.length) {
         const btn = list.parentElement.querySelector('input[type="file"]');
-        console.log(btn);
 
         if (btn.classList.contains('add-more')) {
             btn.classList.remove('add-more');

@@ -199,6 +199,10 @@
     @include response-to(large) {
       width: 140%;
     }
+
+    @include response-to(small) {
+      display: none;
+    }
   }
 }
 
@@ -305,6 +309,10 @@
       top: -133px;
       width: 100%;
     }
+
+    @include response-to(small) {
+      display: none;
+    }
   }
 }
 
@@ -354,6 +362,23 @@
     width: 100%;
     left: 0;
     bottom: -240px;
+
+    @include response-to(small) {
+      display: none;
+    }
+  }
+
+  .section__bg + .section__bg-mob {
+    display: none;
+
+    @include response-to(small) {
+      display: block;
+      width: 103%;
+      left: 0;
+      position: absolute;
+      height: auto;
+      top: -1040px;
+    }
   }
 }
 
